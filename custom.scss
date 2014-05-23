@@ -1,0 +1,2071 @@
+/*
+Grey
+In lieu of a better name.
+By AoPS user Tungsten
+
+This theme was inspired by NeoMathematicalKid's Fresh, PythonNut's Libre, and asf's Wordpress Dusk to
+Dawn. Thanks to NeoMathematicalKid, PythonNut, knittingfrenzy18, asf, and the folks at MDN for helping me to learn CSS.
+
+This code is released under the GNU GPLv3 license. The full legal text of the license is available at https://www.gnu.org/copyleft/gpl.html .
+
+Compatibility stuffs (OUT OF DATE):
+Perfect:
+Firefox 27
+Chrome 30
+Opera 17
+
+Poor:
+Safari 6 (positioning seems to work differently than in FF, Chrome, and Opera)
+Mobile Safari
+Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
+*/
+
+// TODO Update compatibility table
+// TODO Style the postform more
+// TODO Style blog search
+
+
+// Link colour
+$aColour: #555;
+$aHoverColour: #888;
+
+// Font size
+$fontSize: 14px;
+
+// Unicode values
+$gear: "\2699";
+$leftPen: "\270D";
+$envelope: "\2709";
+$openQuote: "\201C";
+$closeQuote: "\201D";
+
+// Vender prefix mixin
+@mixin vendorize($property, $value, $important: no) {
+	@if $important != no {
+		-webkit-#{$property}: $value !important;
+		   -moz-#{$property}: $value !important;
+			-ms-#{$property}: $value !important;
+			 -o-#{$property}: $value !important;
+				#{$property}: $value !important;
+	}
+
+	@else {
+		-webkit-#{$property}: $value;
+		   -moz-#{$property}: $value;
+			-ms-#{$property}: $value;
+			 -o-#{$property}: $value;
+				#{$property}: $value;
+	}
+}
+
+// linear-gradient mixin
+@mixin linear-gradient($angle, $colourStops...) {
+	background-image: -webkit-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:    -moz-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:     -ms-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:      -o-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:         linear-gradient(#{$angle}, #{$colourStops});
+}
+
+/* Universal Reset */
+* {
+	margin: 0;
+	padding: 0;
+
+	@include vendorize(box-sizing, border-box, $important: y);
+}
+
+/* Blog error animation */
+@-webkit-keyframes error {
+	0% {background-color: #fff;}
+	
+	50% {background-color: #fcc;}
+	
+	100% {background-color: #fff;}
+}
+
+@-moz-keyframes error {
+	0% {background-color: #fff;}
+	
+	50% {background-color: #fcc;}
+	
+	100% {background-color: #fff;}
+}
+
+@-o-keyframes error {
+	0% {background-color: #fff;}
+	
+	50% {background-color: #fcc;}
+	
+	100% {background-color: #fff;}
+}
+
+@keyframes error {
+	0% {background-color: #fff;}
+	
+	50% {background-color: #fcc;}
+	
+	100% {background-color: #fff;}
+}
+
+/* Shouts blink Animation */
+@-webkit-eyframes blink {
+	from {width: 1px;}
+
+	to {width: 0;}
+}
+
+@-moz-keyframes blink {
+	from {width: 1px;}
+
+	to {width: 0;}
+}
+
+@-o-keyframes blink {
+	from {width: 1px;}
+
+	to {width: 0;}
+}
+
+@keyframes blink {
+	from {width: 1px;}
+
+	to {width: 0;}
+}
+
+/* Background */
+html {
+	min-height: 100%;
+}
+
+body {
+	background-color: #fff;
+	font-size: $fontSize;
+	text-rendering: OptimizeLegibility;
+}
+
+/* Width stuff */
+#wrapper {
+	position: relative;
+	top: -22px; /* Move #wrapper to the top of the window */
+	width: 80%;
+}
+
+#main, #side {width: calc(100% - 10px);}
+#content {background: transparent;}
+
+/* Wrapper */
+#wrapper {
+	border: none;
+	background: transparent;
+}
+
+/* Header */
+#header {
+	background: transparent;
+	z-index: -1;
+	border: none;
+	border-bottom: 1px solid #999;
+}
+
+/* Navigation box */
+#navigation_box {
+	position: absolute;
+	border: none;
+	top: 50px;
+	z-index: 1;
+	left: 10%;
+	width: 80%;
+	background: transparent;
+	color: transparent;
+	padding: 0;
+
+	@include vendorize(overflow-x, auto);
+	a {
+		color: $aColour;
+
+		&:hover {
+			color: $aHoverColour;
+		}
+	}
+}
+
+#right_navigation_box a::before {
+	content: $gear; /* Gear */
+	font-size: 17px;
+	padding: 3px;
+}
+
+/* Post new entry link */
+#post-new-entry-img {display: none;} /* Hide the pencil image */
+#post-new-entry::before {
+	content: $leftPen; /* Add a pen image */
+	font-size: 32px;
+}
+
+/* Edit/delete/report post links */
+.edit-icon, .delete-icon, .report-icon {width: 0px;}
+.edit-icon::before {content: "edit";}
+
+/* Entries */
+.entry {
+	background: transparent;
+	border: none !important;
+	
+	@include vendorize(border-radius, 2px);
+	
+	@include vendorize(box-shadow, none);
+	
+	@include vendorize(transition, box-shadow 1s ease);
+}
+
+.entry:hover {
+	@include vendorize(box-shadow, 0px 0px 6px #b2b2b2);
+}
+
+.entry > h2 {
+	color: #000;
+}
+
+.entry > h2 img, .author img {
+	display: none;
+}
+
+.entry > h2::before, .author::before {
+	content: ">";
+	padding: 3px;
+}
+
+div.entrywrap {
+	background: transparent;
+	border: none;
+	margin: 0px;
+	padding-left: 3px;
+}
+
+/* Comments */
+.comment {
+	border: none !important;
+	
+	@include vendorize(border-radius, 2px);
+	
+	@include vendorize(transition, box-shadow 1s ease);
+	
+	&:hover {
+		@include vendorize(box-shadow, 0px 0px 6px #b2b2b2);
+	}
+}
+
+/* Post tags */
+.post-tags a {
+	width: 0px;
+}
+
+/* Total posts (based on code by NeoMathematicalKid) */
+.total-posts {
+	position: relative;
+	color: transparent;
+	background-color: transparent;
+	margin-top: 15px;
+	text-align: center;
+
+
+	> span:last-child {
+		color: silver;
+		float: left;
+		margin-left: -7px;
+		width: 100%;
+	
+		> a,
+		> strong {
+			display: inline-block;
+			max-width: $fontSize;
+			background: #e1e1e2;
+			color: transparent;
+			font-size: 75%;
+			padding: 0 3.5px;
+			margin: 0 5px;
+			
+			@include vendorize(border-radius, 50px);
+			@include vendorize(transition, all 0.7s ease);
+		}
+
+		> strong:first-of-type {
+			background: #cccccd;
+		}
+
+		> a:hover,
+		> strong:first-of-type:hover {
+			background-color: transparent;
+			max-width: 100%;
+			color: gray;
+			text-decoration: none;
+			text-indent: -1.5px;
+			text-indent: -webkit-calc(-2px);
+			padding-left: 5px;
+			
+			@include vendorize(transform, scale(1.2));
+		}
+
+		> strong:first-of-type:hover {
+			border: 1px solid #cccccd;
+		}
+
+		> a:hover {
+			border: 1px solid #e1e1e2;
+		}
+	}
+}
+
+/* Post form */
+.fields1:first-child {
+	margin: 0 !important;
+	border-bottom: none;
+}
+
+#main {
+	#message.inputbox {
+		position: relative;
+		left: -11px;
+		top: 11px;
+		width: calc(100% + 9px);
+		
+		border: 1px solid black;
+		border-bottom: none;
+	}
+
+	/* Submit Buttons */
+	.submit-buttons {
+		border: none;    
+		margin: 0;
+		padding: 0;
+		
+		
+
+		input {
+			background: transparent;
+			position: relative;
+			border-width: 1px;
+			border-color: #000;
+			width: 50%;
+			height: 20px;
+			top: -2px;
+			float: left;
+			margin: 0 !important;
+			
+				
+			
+			@include vendorize(transition, 1s ease);
+		
+
+			&:hover {
+				@include vendorize(border-radius, 0, $important: "y");
+			}
+
+			&:first-child {    
+				@include vendorize(border-bottom-left-radius, 100px);
+			}
+
+			&:last-child {
+				border-left: none;
+				top: -18px;
+				
+				
+				
+				@include vendorize(border-bottom-right-radius, 100px);
+			}
+		}
+	}
+}
+
+/* Side */
+#side .codecontent {text-align: left;}
+
+/* Widgets */
+.widget[id], #user-menu-widget {
+	background:  rgba(0, 0, 0, 0.9);
+	color: #ccc;
+	position: fixed;
+	z-index: 1;
+	left: 0px;
+	top: 100%; /* Move the element just below the screen */
+	width: 100%; /* Make the element as wide as the screen */
+	height: 100%; /* Make the element as tall as the screen */
+	text-align: center; /* Center the text */
+	overflow: auto; /* Insert scrollbars, if neccesary */
+	
+	@include vendorize(transition, top 0.5s ease);
+}
+
+.widget-title {padding-top: calc(1em + 4px) !important;}
+.widget-title, .widget-content {
+	position: relative;
+	left: 20%;
+	width: 60%;
+	overflow: auto;
+}
+
+/* When the user clicks a link */
+#user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
+#custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {top: 0%;}
+
+#user-menu-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#archive-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#shouts-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#contrib-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#categories-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#tags-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
+#custom-block-widget:target ul:last-child li:last-child a,
+#wrapper:target #custom-block-widget ul:last-child li:last-child a,
+#content:target #custom-block-widget ul:last-child li:last-child a,
+#side:target #custom-block-widget ul:last-child li:last-child a {display: block;}
+
+/* Display/hide links */
+#custom-block-widget ul:last-child li {
+	list-style-type: none;
+
+	a {
+		position: fixed;
+		z-index: 2;
+		width: 10%;
+		height: 20px;
+		background-color: #fff;
+	}
+
+	&:last-child a {
+		left: 45%;
+		top: 0%;
+		display: none; /* Hide the hide link */
+
+		@include vendorize(border-radius, 0 0 20px 20px);
+
+		@include vendorize(box-shadow, 0px 3px 5px #000);
+	}
+
+	// Display links
+	&:not(:last-child) a {
+		top: calc(100% - 20px);
+		
+		@include vendorize(border-radius, 20px 20px 0 0);
+
+		@include vendorize(box-shadow, 0px -3px 5px #000);
+
+		@include vendorize(transition, top 0.5s ease);
+	}
+
+	// Display link positioning
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) a {
+			left: 10 * $i - 10%;
+		}
+	}
+}
+
+/* Move a link down when clicked */
+#user-menu-widget:target ~ #custom-block-widget ul:last-child li:nth-child(1) a,
+#archive-widget:target ~ #custom-block-widget ul:last-child li:nth-child(2) a,
+#shouts-widget:target ~ #custom-block-widget ul:last-child li:nth-child(3) a,
+#tags-widget:target ~ #custom-block-widget ul:last-child li:nth-child(4) a,
+#contrib-widget:target ~ #custom-block-widget ul:last-child li:nth-child(5) a,
+#categories-widget:target ~ #custom-block-widget ul:last-child li:nth-child(6) a,
+#custom-block-widget:target ul:last-child li:nth-child(7) a,
+#wrapper:target #custom-block-widget ul:last-child li:nth-child(8) a,
+#content:target #custom-block-widget ul:last-child li:nth-child(9) a,
+#side:target #custom-block-widget ul:last-child li:nth-child(10) a {
+	top: calc(100% - 10px);
+}
+
+/* Shouts */
+#shouts-widget {
+	fieldset {
+		border: none;
+
+		> ul > li {
+			@include vendorize(border-radius, 2px);
+	
+			@include vendorize(box-shadow, none);
+			
+			@include vendorize(transition, box-shadow 1s ease);
+
+			&:hover {
+				@include vendorize(box-shadow, 0px 0px 6px #000);
+			}
+		}
+
+		&:nth-child(1) {
+			border-top: 2px solid #000;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+		}
+
+		&:nth-child(2) {
+			position: relative;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				left: -2px;
+				height: 50px;
+				top: -30px;
+				border-left: 2px solid #000;
+				border-right: 2px solid #000;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				left: -2px;
+				height: 27px;
+				top: 65px;
+				border-left: 2px solid #000;
+				border-right: 2px solid #000;
+			}
+		}
+	}
+
+	#shout_post::after {
+		content: "";
+		position: relative;
+		width: 100%;
+		height: 20px;
+	}
+
+	// Delete Buttons
+	fieldset:nth-child(3) {   
+		margin: 0;
+		padding: 0;
+
+		input {
+			background: #000;
+			color: #999;
+			position: relative;
+			border: none;
+			width: 50%;
+			height: 20px;
+			top: 1px;
+			float: left;
+			margin: 0 !important;
+			
+				
+			
+			@include vendorize(transition, 1s ease);
+		
+
+			&:hover {
+				@include vendorize(border-radius, 0, $important: "y");
+			}
+
+			&:first-child {    
+				@include vendorize(border-bottom-left-radius, 100px);
+			}
+
+			&:last-child {				
+				
+				
+				@include vendorize(border-bottom-right-radius, 100px);
+			}
+		}
+	}
+
+	// Shouts page select
+	fieldset:nth-child(2) div {
+		position: relative;
+		background-color: transparent;
+		margin-top: 15px;
+		text-align: center;
+		
+		> a,
+		> strong {
+			display: inline-block;
+			border: 1px solid transparent;
+			max-width: $fontSize;
+			max-height: 75%;
+			background: #e1e1e2;
+			color: transparent;
+			font-size: 75%;
+			line-height: $fontSize;
+			padding: 0 3.5px;
+			margin: 0 5px;
+			
+			@include vendorize(border-radius, 50px);
+			@include vendorize(transition, all 0.7s ease);
+		}
+
+		> strong:first-of-type {
+			background: #cccccd;
+		}
+
+		> a:hover,
+		> strong:first-of-type:hover {
+			background-color: transparent;
+			max-width: 100%;
+			color: gray;
+			text-decoration: none;
+			text-indent: -1.5px;
+			text-indent: -webkit-calc(-2px);
+			padding-left: 5px;
+			
+			@include vendorize(transform, scale(1.2));
+		}
+
+		> strong:first-of-type:hover {
+			border-color: #cccccd;
+		}
+
+		> a:hover {
+			border-color: #e1e1e2;
+		}
+	}
+
+	.row1,  .row2 {
+		color: #999;
+		background: rgba(0, 0, 0, 0.45);
+		padding: 1em;
+		margin: 0 0 0.5em;
+
+		@include vendorize(border-radius, 1em);
+	}
+
+	// Post Shout Form
+	#message.inputbox {
+		position: relative;
+		background: #000;
+		color: #999;
+		left: -11px;
+		top: 11px;
+		width: calc(100% + 9px);
+		
+		border: 1px solid black;
+		border-bottom: none;
+	}
+
+	// Submit Buttons
+	.submit-buttons {
+		border: none;    
+		margin: 0;
+		padding: 0;
+		
+		
+
+		input {
+			background: #000;
+			color: #999;
+			position: relative;
+			border-width: 1px;
+			border-color: #000;
+			width: 50%;
+			height: 20px;
+			top: 1px;
+			float: left;
+			margin: 0 !important;
+			
+				
+			
+			@include vendorize(transition, 1s ease);
+		
+
+			&:hover {
+				@include vendorize(border-radius, 0, $important: "y");
+			}
+
+			&:first-child {    
+				@include vendorize(border-bottom-left-radius, 100px);
+			}
+
+			&:last-child {
+				border-left: none;
+				top: 1px;
+				
+				
+				
+				@include vendorize(border-bottom-right-radius, 100px);
+			}
+		}
+	}
+}
+
+.widget-content li:last-child {border-bottom: none;}
+
+/* About Owner */
+#about-owner-widget {z-index: 0;}
+
+/* Blog Stats */
+#stats-widget {z-index: 0;}
+
+/* Search Blogs */
+#stats-widget + .widget {
+	position: relative;
+	width: 100%;
+	left: 0%;
+}
+
+#blog_searchform {
+	#blog_keywords {
+		border: {
+			width: 1px 1px 0 1px;
+			color: #000;
+		}
+	
+		
+	}
+
+	div {
+		margin-top: 0 !important;
+			
+		.button2 {
+			position: relative;
+			width: 100%;
+			border: 1px solid #000;
+			background: transparent;
+
+			@include vendorize(border-radius, 0  0 100px 100px);
+
+			@include vendorize(transition, 1s ease);
+
+			&:hover {
+				@include vendorize(border-radius, 0);
+			}
+		}
+	}
+}
+
+/* RSS Feed */
+#feed-widget {z-index: 0;}
+
+/* Blog errors */
+$beMoveAmount: 95px;
+#blog-errors {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid #f00;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	left: 10%;
+	top: -85px;
+	width: 80%;
+	height: 80px;
+	z-index: 2;
+
+	overflow: auto;
+	
+	
+	@include vendorize(border-radius, 4px);
+	@include vendorize(box-shadow, 0px 0px 4px #f00);
+	@include vendorize(animation, error 3s linear infinite);
+	@include vendorize(transition, top 1s ease);
+
+	&:hover {
+		top: -85px + $beMoveAmount;
+	}
+}
+
+/* LaTeX and Asymptote */
+/* Invert LaTeX colours in #side. Based on code by PythonNut */
+/* Firefox */
+#side img.latex:-moz-any(*,*),
+#side img.latexcenter:not([src*="asyforum"]):-moz-any(*,*) {
+	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
+}
+
+/* Safari 3+, Chrome 1+ */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	img.latex, img.latexcenter {
+		-webkit-filter: invert(88%) !important;
+		background: none;
+		padding: 0;
+	}
+
+	#side img.latex, #side img.latexcenter:not([src*="asyforum"]) {
+		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
+	}
+}
+
+
+/* Links */
+a:link, a:visited {
+	color: $aColour;
+	
+	@include vendorize(transition, color 0.5s ease);
+}
+
+a:link:hover, a:visited:hover {
+	color: $aHoverColour;
+}
+
+/* Usernames */
+a[href*="mode=viewprofile"] {
+	display: inline-block;
+	
+	@include vendorize(transform, skew(-10deg));
+			
+	@include vendorize(transition, all 0.5s ease);
+}
+
+a[href*="mode=viewprofile"]:hover {
+	@include vendorize(transform, none);
+}
+
+/* Email addresses */
+a[href^="mailto:"]::after {
+	content: $envelope; /* Add an envelope after the email address */
+	font-size: 20px;
+	padding: 3px;
+}
+
+/* BBCode stuffs */
+/* Quotes */
+div.quotetitle, div.quotecontent {
+	background-color: transparent;
+	border: none;
+	border-left: 5px solid #c80000;
+	padding-left: 10px;
+}
+div.quotetitle {
+	font-style: italic;
+}
+
+.quotecontent::before {
+	content: $openQuote;
+	font: normal 30px times;
+}
+
+.quotecontent::after {
+	@extend .quotecontent::before;
+
+	content: $closeQuote;
+	position: relative;
+	top: 1em;
+}
+
+/* Lists */
+ul, ol {
+	padding-left: 30px;
+}
+
+/* Code */
+.codecontent {
+	background-color: #fff;
+	color: #000;
+	font-family: monospace !important;
+	border: 2px solid #dcdcdc;
+	position: relative;
+	z-index: 0;
+	max-height: 30em;
+	overflow: auto;
+	white-space: pre;
+	border-radius: 20px 20px 3px 3px;
+	margin: 1em 0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.codecontent > div::before {
+	content: attr(class);
+	background-color: #dcdcdc;
+	position: relative;
+	width: calc(100% + 2px);
+	height: 20px;
+	z-index: 100;
+	display: block;
+	font: bold 14px Arial !important;
+	text-transform: uppercase;
+	border-radius: 20px 20px 0px 0px;
+	/*padding: 0px 0 0px 10px;*/
+}
+
+.codetitle {
+	display: none;
+}
+
+/* Image size limiter */
+.entrywrap img, #side img {
+	position: relative;
+	max-width: 100%;
+}
+
+/* Highlighting */
+*::-moz-selection {
+	background-color: #3ca2a2;
+}
+
+*::selection {
+	background-color: #3ca2a2;
+}
+
+#side > div::-moz-selection {
+	background: #1e5151;
+}
+
+#side > div::selection {
+	background: #1e5151;
+}
+
+/* CSS Icons (heavily based on work by Nicholas Gallagher [read: essentially copied]) */
+.modactions li::before, .modactions li::after,
+.modactions li a::before, .modactions li a::after,
+#custom-block-widget ul:last-child li a::before,
+#custom-block-widget ul:last-child li a::after,
+#custom-block-widget ul:last-child li a span::before,
+#custom-block-widget ul:last-child li a span::after,
+.panel.bg2::before, .panel.bg2::after,
+#main .submit-buttons::before, #main .submit-buttons::after,
+#shouts-widget fieldset:nth-child(3)::before, #shouts-widget fieldset:nth-child(3)::after,
+#blog_searchform div::before, #blog_searchform div::after,
+.post-tags a:first-child::before, .post-tags a:first-child::after,
+#tabs a::before, #tabs a::after,
+#tabs a span::before, #tabs a span::after,
+#custom-block-widget ul:nth-last-child(2) li a::before,
+#custom-block-widget ul:nth-last-child(2) li a::after,
+#custom-block-widget ul:nth-last-child(2) li a span::before,
+#custom-block-widget ul:nth-last-child(2) li a span::after {
+	margin: -8px 0px 0px;
+	background: none repeat scroll 0% 0% #000;
+}
+
+.modactions li::before, .modactions li::after,
+.modactions a::before, .modactions a::after,
+#custom-block-widget ul:last-child li a::before,
+#custom-block-widget ul:last-child li a::after,
+#custom-block-widget ul:last-child li a span::before,
+#custom-block-widget ul:last-child li a span::after,
+.panel.bg2::before, .panel.bg2::after,
+#main .submit-buttons::before, #main .submit-buttons::after,
+#shouts-widget fieldset:nth-child(3)::before, #shouts-widget fieldset:nth-child(3)::after,
+#blog_searchform div::before, #blog_searchform div::after,
+.post-tags a:first-child::before, .post-tags a:first-child::after,
+#tabs a::before, #tabs a::after,
+#tabs a span::before, #tabs a span::after,
+#tabs a span::before, #tabs a span::after,
+#custom-block-widget ul:nth-last-child(2) li a::before,
+#custom-block-widget ul:nth-last-child(2) li a::after,
+#custom-block-widget ul:nth-last-child(2) li a span::before,
+#custom-block-widget ul:nth-last-child(2) li a span::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	
+	@include vendorize(transition, 0.5s ease);
+}
+
+/* Modactions */
+.modactions li {
+	position: relative;
+	font-size: 0;
+
+	// Edit Post
+	&:nth-child(1):not(:last-child) a {
+		&::before {
+			left:-50px;
+			width:5px;
+			height:5px;
+			margin-top:2px;
+			background:#000;
+			@include vendorize(transform, skew(-10deg, -10deg));
+		}
+
+		&::after {
+			left:-50px;
+			width:13px;
+			height:6px;
+			border-left:1px solid #fff;
+			margin-top:-3px;
+			/* css3 */
+			@include vendorize(transform, rotate(-45deg));
+		}
+
+		&:hover::before,
+		&:hover::after {
+			background:#228B22;
+		}
+	}
+
+	// Delete Post
+	&:nth-child(2) {
+		&::before { // Lid of the trash can
+			left:-30px;
+			width:13px;
+			height:11px;
+			margin-top:-6px;
+			border-top:2px solid #000;
+			background:transparent;
+		}
+
+		&::after { // Ribs of the trash can
+			left:-26px;
+			width:1px;
+			height:7px;
+			border-right:3px double #000;
+			border-left:1px solid #000;
+			margin-top:-2px;
+			background: transparent;
+		}
+		
+		& a {
+			&::before { // Box of the trash can
+				left:-30px;
+				width:9px;
+				height:11px;
+				margin-top:-6px;
+				border:2px solid #000;
+				background:transparent;
+			}
+
+			&::after { // Lid of the trash can
+				left:-27px;
+				width:3px;
+				height:2px;
+				margin-top:-9px;
+				border:2px solid #000;
+				border-bottom:0;
+				background:transparent;
+				/* css3 */
+				-webkit-border-top-left-radius:2px;
+				-webkit-border-top-right-radius:2px;
+				@include vendorize(border-radius, 2px 2px 0 0);
+			}
+		}
+
+		&:hover::after,
+		a:hover::before,
+		a:hover::after {
+			border-color:#F00;
+			background:transparent;
+		}
+
+		a:hover::after {
+			top: -7px;
+			left: -25px;
+			transform: rotate(20deg);
+		}
+
+		&:hover {
+			&::before {
+				border-color: #f00;
+				top: -7px;
+				left: -31px;
+				transform: rotate(20deg);
+			}
+
+			&:hover a::before,
+			&:hover a::after {
+				border-color: #f00;
+			}
+
+			&:hover a::after {
+				top: -7px;
+				left: -25px;
+				transform: rotate(20deg);
+			}
+		}
+	}
+
+	// Report Post
+	&:last-child:not(:nth-child(2)) a {
+		&::before {
+			left:-10px;
+			width:7px;
+			height:7px;
+			margin-top:-5px;
+			border-width:7px 0 0 2px;
+			border-style:solid;
+			border-color:#000;
+			background:transparent;
+			/* css3 */
+			@include vendorize(transform, skewY(-8deg));
+		}
+
+		&::after {
+			left:-4px;
+			width:6px;
+			height:7px;
+			margin-top:-3px;
+			background:#000;
+			/* css3 */
+			@include vendorize(transform, skewY(-6deg));
+		}
+
+		&:hover::before {
+			border-color:#F44;
+			background:transparent;
+		}
+
+		&:hover::after {
+			background-color:#F44;
+		}
+	}
+}
+
+/* Display/hide Links */
+#custom-block-widget ul:last-child li {
+	font-size: 0px;
+
+	// Hide link
+	&:last-child a {
+		&::before {
+			left:calc(50% - 8px);
+			width:16px;
+			height:16px;
+			/* css3 */
+			@include vendorize(border-radius, 16px);
+		}
+
+		&::after {
+			border-width:5px 0 5px 6px;
+			border-style:solid;
+			border-color:transparent #fff;
+			margin-top:-5px;
+			background:transparent;
+		}
+
+		& span::before {
+			z-index:10;
+			width:5px;
+			height:4px;
+			margin-top:-2px;
+			background:#fff;
+		}
+
+		&::after {
+			left:calc(50% - 5px);
+			border-width:0 5px 6px;
+			border-color:#fff transparent;
+			margin-top:-6px;
+		}
+
+		& span::before {
+			left:calc(50% - 2px);
+			width:4px;
+			height:5px;
+			margin-top:0;
+		}
+
+		&::after {
+			border-width:6px 5px 0;
+			margin-top:0;
+		}
+
+		& span::before {
+			margin-top:-5px;
+		}
+	}
+
+	// Description Link
+	&:nth-child(1) a {
+		&::before {
+			content:"i";
+			left:calc(50% - 8px);
+			width:16px;
+			height:16px;
+			margin-top:-8px;
+			font-family: Times;
+			font-size:$fontSize;
+			font-weight:bold;
+			font-style:italic;
+			line-height:15px;
+			text-align:center;
+			color:#fff;
+			background:#000;
+			/* css3 */
+			@include vendorize(border-radius, 16px);
+		}
+
+		&:hover::before {
+			background: #00f;
+		}
+	}
+
+	// Archives Link
+	&:nth-child(2) a {
+		&::before { // Background
+			left: calc(50% - 13px);
+			width: 13px;
+			height: 13px;
+
+			border: 2px solid #000;
+			background: transparent;
+
+			@include vendorize(border-radius, 13px);
+		}
+
+		span {
+			&::before { // Large hand
+				position: absolute;
+				left: calc(50% - 5px);
+				top: 13px;
+
+				width: 2px;
+				height: 6px;
+
+				background-color: #000;
+
+				animation: spin 3s linear infinite;
+				content: "";
+				transform-origin: 1px 6px;
+			}
+
+			&::after { // Small hand
+				display: block;
+				left: calc(50% - 5px);
+				top: 14px;
+
+				width: 2px;
+				height: 5px;
+
+				background-color: #000;
+
+				animation: spin 6 * 3s linear infinite;
+				content: "";
+				transform-origin: 1px 5px;
+				transform: rotate(30deg);
+			}
+
+			&:hover {
+				&::before,
+				&::after {
+					background-color: #0f0;
+				}
+
+				&::before {
+					transform: rotate(360deg);
+				}
+
+				&::after {
+					transform: rotate(90deg);
+				}
+			}
+		}
+
+		&:hover {
+			&::before {
+				border-color: #c00;
+			}
+
+			span {
+				&::before,
+				&::after {
+					background-color: #0c0;
+				}
+
+				&::before {
+					transform: rotate(360deg);
+				}
+
+				&::after {
+					transform: rotate(90deg);
+				}
+			}
+		}
+	}
+
+	// Shouts Link
+	&:nth-child(3) a {
+		&::before {
+			left: calc(50% - 10px);
+			width:16px;
+			height:10px;
+			border:  1px solid #000;
+			margin-top:-8px;
+			/* css3 */
+			@include vendorize(box-sizing, border-box);
+			@include vendorize(border-radius, 2px);
+			
+		}
+
+		&::after {
+			left:calc(50% - 1px);
+			border:2px solid transparent;
+			border-top-color:#000;
+			border-left-color:#000;
+			margin-top:2px;
+			background:transparent;
+		}
+
+		span::before {
+			width: 1px;
+			height: 6px;
+			left: calc(50% - 7px);
+			margin-top: -6px;
+
+			@include vendorize(animation, blink 1.5s ease 0s infinite normal);
+		}
+
+		&:hover {
+			&::before {
+				background: transparent;
+				border-color: #0a0;
+			}
+
+			&::after {
+				border-top-color: #0a0;
+				border-left-color: #0a0;
+			}
+
+			span::before {
+				background-color: #0a0;
+			}
+		}
+	}
+
+	// Tags Link
+	&:nth-child(4) a {
+		&::before {
+			left:calc(50% - 8px);
+			width:9px;
+			height:15px;
+			margin-top:-8px;
+			background:#000;
+			/* css3 */
+			-webkit-border-top-left-radius:3px;
+			-webkit-border-top-right-radius:3px;
+			-moz-border-radius:3px 3px 0 0;
+			border-radius:5px 5px 0 0;
+			@include vendorize(transform, rotate(-40deg));
+		}
+
+		&::after {
+			left:calc(50% - 7px);
+			width:3px;
+			height:3px;
+			margin-top:-4px;
+			background:#fff;
+			@include vendorize(border-radius, 5px);
+		}
+
+		&:hover::before {
+			background: #842;
+		}
+	}
+
+	// Contributors Link
+	&:nth-child(5) a {
+		& span::before { // Tip of the pencil
+			left:calc(50% - 4px);
+			border-width:2px 0 2px 2px;
+			border-style:solid;
+			border-color:transparent #000;
+			margin-top:-1px;
+		}
+
+		&::before { // Border of the paper
+			left:calc(50% - 10px);
+			width:10px;
+			height:10px;
+			border:2px solid #000;
+			margin-top:-6px;
+			background:transparent;
+			/* css3 */
+			@include vendorize(border-radius, 3px);
+		}
+
+		&::after { // Body of the pencil
+			left:calc(50% - 4px);
+			width:10px;
+			height:3px;
+			border:1px solid #fff;
+			margin-top:-6px;
+			/* css3 */
+			@include vendorize(transform, rotate(-45deg));
+		}
+
+		&:hover {
+			span::before {
+				border-color: #777;
+				top: 8px;
+			}
+
+			&::before {
+				border-color: #ccc;
+			}
+
+			&::after {
+				background-color: #842;
+				top: 8px;
+			}
+		}
+	}
+
+	// Categories Link
+	&:nth-child(6) a {
+		&::before {
+			left:calc(50% - 12px);
+			width:16px;
+			height:12px;
+			margin-top:-6px;
+			/* css3 */
+			-webkit-border-bottom-right-radius:1px;
+			-webkit-border-bottom-left-radius:1px;
+			-moz-border-radius:0 0 1px 1px;
+			border-radius:0 0 1px 1px;
+		}
+
+		&::after {
+			left:calc(50% - 10px);
+			width:6px;
+			height:2px;
+			margin-top:-8px;
+			background:#000;
+			/* css3 */
+			-webkit-border-top-right-radius:1px;
+			-webkit-border-top-left-radius:1px;
+			-moz-border-radius:1px 1px 0 0;
+			border-radius:1px 1px 0 0;
+		}
+
+		&:hover::before,
+		&:hover::after {
+			background: #55f;
+		}
+	}
+
+	// Custom Block Link
+	&:nth-child(7) a {
+		& span::before,
+		&::before {
+			left:calc(50% - 3px);
+			border-width:10px 0 10px 8px;
+			border-style:solid;
+			border-color:transparent #000;
+			margin-top:-9px;
+			background:transparent;
+			/* css3 */
+			@include vendorize(transform, rotate(22.5deg));
+		}
+
+		&::before {
+			left:calc(50% - 3px);
+			/* css3 */
+			@include vendorize(transform, rotate(157.5deg));
+		}
+
+		&::after {
+			left: calc(50% - 9px);
+			border-width:8px 10px 0;
+			border-style:solid;
+			border-color:#000 transparent;
+			margin-top:-3px;
+			background:transparent;
+		}
+
+		&:hover {
+			span::before,
+			span:hover::before,
+			&::before {
+				border-color: transparent #ee0;
+			}
+
+			&::after {
+				border-color: #ee0 transparent;
+			}
+		}
+	}
+
+	// About Owner Link
+	&:nth-child(8) a{
+		&::before { // The body of the person
+			left:calc(50% - 12px);
+			width:16px;
+			height:5px;
+			margin-top:1px;
+			/* css3 */
+			-webkit-border-top-right-radius:5px;
+			-webkit-border-top-left-radius:5px;
+			-moz-border-radius:5px 5px 0 0;
+			border-radius:5px 5px 0 0;
+		}
+
+		&::after { // The head of the person
+			left:calc(50% - 7px);
+			width:6px;
+			height:10px;
+			margin-top:-7px;
+			/* css3 */
+			-webkit-border-top-right-radius:5px;
+			-webkit-border-top-left-radius:5px;
+			-webkit-border-bottom-right-radius:5px 10px;
+			-webkit-border-bottom-left-radius:5px 10px;
+			-moz-border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
+			border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
+		}
+
+		&:hover {
+			&::before {
+				background-color: #aae;
+			}
+
+			&::after {
+				background-color: #eaa;
+			}
+		}
+	}
+
+	// Blog Stats Link
+	&:nth-child(9) a {
+		&::before {
+			left:calc(50% - 10px);
+			border:8px solid #000;
+			margin-top:-7px;
+			/* css3 */
+			@include vendorize(border-radius, 16px);
+		}
+
+		&::after {
+			left:calc(50% - 4px);
+			top: 11px;
+			width:8px;
+			height:8px;
+			border-width:0 0 2px 2px;
+			border-style:solid;
+			border-color:#000;
+			margin-top:-8px;
+			background:#000;
+			/* css3 */
+			-webkit-border-top-right-radius:16px;
+			-moz-border-radius:0 16px 0 0;
+			border-radius:0 16px 0 0;
+		}
+
+		&:hover::before {
+			border-color:#77f;
+		}
+
+		&:hover::after {
+			background:#9d2ca3;
+			border-color: #fff;
+			left: calc(50% - 3px);
+			top: 10px;
+		}
+	}
+
+	// RSS Link
+	&:nth-child(10) a {
+		&::before {
+			left:calc(50% - 8px);
+			width:5px;
+			height:5px;
+			margin-top:0;
+			/* css3 */
+			@include vendorize(border-radius, 5px);
+		}
+
+		&::after {
+			left:calc(50% - 8px);
+			width:8px;
+			height:8px;
+			border-width:5px 5px 0 0;
+			border-style:double;
+			border-color:#000;
+			background:transparent;
+			/* css3 */
+			-webkit-border-top-right-radius:25px;
+			-moz-border-radius:0 25px 0 0;
+			border-radius:0 25px 0 0;
+		}
+
+		&:hover {
+			&::before {
+				background:#c55500;
+			}
+
+
+			&::after {
+				border-color:#c55500;
+				width:11px;
+				height: 11px;
+				top: 8px;
+			}
+		}
+	}
+}
+
+/* Delete Shouts */
+#shouts-widget fieldset:nth-child(3) {
+	position: relative;
+
+	&:before {
+		border: solid #000;
+		border-width: 7px 3px;
+		border-radius: 16px;
+		left: calc(50% - 43px);
+		top: -16px;
+		width: 10px;
+		height: 2px;
+		margin-top: -2px;
+		background: #fff;
+	}
+
+	&:after {
+		left: calc(50% - 40px);
+		top: -9px;
+		width:10px;
+		height:2px;
+		margin-top:-2px;
+		background:#fff;
+	}
+
+	&:hover {
+		&:before {
+			transform: rotate(-45deg);
+		}
+
+		&:after {
+			transform: rotate(45deg);
+		}
+	}
+}
+
+/* Search Button */
+#blog_searchform fieldset {
+	position: relative;
+
+	div {
+		&::before { /* Circle of the glass */
+			left: calc(50% - 50px);
+			top: 33px;
+			width:6px;
+			height:6px;
+			border:3px solid #000;
+			background:transparent;
+			/* css3 */
+			-webkit-border-radius:12px;
+			-moz-border-radius:12px;
+			border-radius:12px;
+		}
+
+		&::after { /* Handle of the glass */
+			left: calc(50% - 39px);
+			top: 34px;
+			width:3px;
+			height:7px;
+			margin-top:0;
+			/* css3 */
+			-webkit-transform:rotate(-45deg);
+			-moz-transform:rotate(-45deg);
+			-ms-transform:rotate(-45deg);
+			-o-transform:rotate(-45deg);
+			transform:rotate(-45deg);
+		}
+	}
+}
+
+/* Postform */
+/* Preview */
+.panel.bg2 {
+	position: relative;
+
+	&::before {
+		left:calc(25% - 50px);
+		width:14px;
+		height:14px;
+		margin-top:-18px;
+		background:#000;
+		-webkit-border-top-left-radius:12px;
+		-webkit-border-bottom-right-radius:12px;
+		-moz-border-radius:12px 0 12px 0;
+		border-radius:12px 0 12px 0;
+		-webkit-transform:rotate(45deg);
+		-moz-transform:rotate(45deg);
+		-ms-transform:rotate(45deg);
+		-o-transform:rotate(45deg);
+		transform:rotate(45deg);
+	}
+
+	&::after {
+		left:calc(25% - 47px);
+		width:4px;
+		height:4px;
+		border:2px solid #fff;
+		margin-top:-15px;
+		-webkit-border-radius:6px;
+		-moz-border-radius:6px;
+		border-radius:6px;
+	}
+}
+
+/* Submit */
+#main .submit-buttons {
+	position: relative;
+
+	&::before {
+		left: calc(75% - 45px);
+		width:16px;
+		height:16px;
+		margin-top:-18px;
+		/* css3 */
+		-webkit-border-radius:16px;
+		-moz-border-radius:16px;
+		border-radius:16px;
+		background:#000;
+	}
+
+	&::after {
+		left:calc(75% - 40px);
+		width:3px;
+		height:8px;
+		border-width:0 2px 2px 0;
+		border-style:solid;
+		border-color:#fff;
+		margin-top:-16px;
+		-webkit-transform:rotate(45deg);
+		-moz-transform:rotate(45deg);
+		-ms-transform:rotate(45deg);
+		-o-transform:rotate(45deg);
+		transform:rotate(45deg);
+	}
+}
+
+/* Tags */
+.post-tags {
+	font-size: 0px;
+	position: relative;
+
+	a {
+		font-size: $fontSize;
+		padding: 3px;
+	}
+
+	a:first-child {
+		padding-left: 20px;
+	}
+
+	a:first-child::before {
+		left:6px;
+		width:9px;
+		height:15px;
+		margin-top:-8px;
+		background:#000;
+		/* css3 */
+		-webkit-border-top-left-radius:3px;
+		-webkit-border-top-right-radius:3px;
+		-moz-border-radius:3px 3px 0 0;
+		border-radius:5px 5px 0 0;
+		@include vendorize(transform, rotate(-40deg));
+	}
+
+	a:first-child::after {
+		left:7px;
+		width:3px;
+		height:3px;
+		margin-top:-4px;
+		background:#fff;
+		@include vendorize(border-radius, 5px);
+	}
+
+	&:hover a::before {
+		background: #842;
+	}
+}
+
+/* Postform Tabs */
+#tabs li {
+	list-style-type: none;
+	position: relative;
+	padding: 3px 3px 3px 25px;
+}
+
+/* Options */
+#options-panel-tab a::after {
+	left:13px;
+	width:3px;
+	height:5px;
+	margin-top:-8px;
+	background:#fff;
+	/* css3 */
+	@include vendorize(transform, rotate(45deg));
+}
+
+#options-panel-tab a span::before {
+	left:6px;
+	width:4px;
+	height:15px;
+	margin-top:-7px;
+	background:#000;
+	/* css3 */
+	@include vendorize(transform, rotate(45deg));
+}
+
+#options-panel-tab a span::after {
+	left:8px;
+	width:9px;
+	height:9px;
+	background:#000;
+	@include vendorize(border-radius, 8px);
+}
+
+/* Permissions */
+#permissions-panel-tab a::before,
+#permissions-panel-tab a::after {
+	z-index:10;
+	left:8px;
+	width:3px;
+	height:3px;
+	margin-top:-2px;
+	background:#fff;
+	/* css3 */
+	@include vendorize(border-radius, 3px);
+}
+
+#permissions-panel-tab a::before {
+	left:9px;
+	width:1px;
+	height:4px;
+	margin-top:0px;
+}
+
+#permissions-panel-tab a span::before {
+	left:3px;
+	width:13px;
+	height:10px;
+	margin-top:-4px;
+}
+
+#permissions-panel-tab a span::after {
+	left:5px;
+	width:5px;
+	height:5px;
+	border:2px solid #000;
+	border-bottom:0;
+	margin-top:-11px;
+	background:transparent;
+	/* css3 */
+	@include vendorize(border-radius, 5px 5px 0 0);
+}
+
+/* Subscription */
+#subscriptions-panel-tab a span::before {
+	z-index:10;
+	left:6px;
+	width:12px;
+	height:12px;
+	border-width:0 1px 1px 0;
+	border-style:solid;
+	border-color:#fff;
+	margin-top:-13px;
+	background:transparent;
+	/* css3 */
+	@include vendorize(transform, rotate(39deg) skew(-12deg));
+}
+
+#subscriptions-panel-tab a::before {
+	left:3px;
+	width:6px;
+	border-width:6px;
+	border-style:solid;
+	border-color:#000 #000 transparent;
+	margin-top:-7px;
+	background:transparent;
+}
+
+#subscriptions-panel-tab a::after {
+	left:4px;
+	border-width:0 8px 9px;
+	border-style:solid;
+	border-color:#000 transparent;
+	margin-top:-3px;
+	background:transparent;
+}
+
+/* Upload Attachment */
+#attach-panel-tab a::before {
+	left:5px;
+	width:8px;
+	height:12px;
+	border:2px solid #000;
+	background:transparent;
+}
+
+#attach-panel-tab a::after {
+	left:4px;
+	border-width:3px;
+	border-style:solid;
+	border-color:#fff #000 #000 #fff;
+	margin-top:-9px;
+	background:transparent;
+}
+
+/* Tags */
+#tags-panel-tab a::before {
+	left:6px;
+	width:9px;
+	height:15px;
+	margin-top:-8px;
+	background:#000;
+	/* css3 */
+	-webkit-border-top-left-radius:3px;
+	-webkit-border-top-right-radius:3px;
+	-moz-border-radius:3px 3px 0 0;
+	border-radius:5px 5px 0 0;
+	@include vendorize(transform, rotate(-40deg));
+}
+
+#tags-panel-tab a::after {
+	left:7px;
+	width:3px;
+	height:3px;
+	margin-top:-4px;
+	background:#fff;
+	@include vendorize(border-radius, 5px);
+}
+
+/* Blog Errors */
+#blog-errors {
+	&::after {
+		content: "Error";
+		position: fixed;
+		width: 10%;
+		height: 20px;
+		left: 45%;
+		background: #f00;
+		top: 10px;
+
+		@include vendorize(border-radius, 0px 0px 6px 6px);
+		@include vendorize(transition, top 1s ease);
+	}
+
+	p {
+		&::before, &::after {
+			content: "";
+			position: fixed;
+			width: 12px;
+			height: 12px;
+			border: 1px solid #f00;
+			top: 10px;
+
+			@include vendorize(transition, top 1s ease);
+		}
+
+		&::before {
+			left: calc(45% - 12px);
+			border-width: 1px 1px 0px 0px;
+
+			@include vendorize(border-top-right-radius, 6px);
+			@include vendorize(box-shadow, 4px 0px 0 #f00);
+		}
+
+		&::after {
+			right: calc(45% - 12px);
+			border-width: 1px 0px 0px 1px;
+
+			@include vendorize(border-top-left-radius, 6px);
+			@include vendorize(box-shadow, -4px 0px 0 #f00);
+		}
+	}
+
+	&:hover {
+		&::after {
+			top: 10px + $beMoveAmount;
+		}
+
+		p {
+			&::before, &::after {
+				top: 10px + $beMoveAmount;
+			}
+		}
+	}
+}
+
+/* Mobile style */
+@-webkit-viewport{width: device-width;}
+   @-moz-viewport{width: device-width;}
+	@-ms-viewport{width: device-width;}
+	 @-o-viewport{width: device-width;}
+		@viewport{width: device-width;}
+
+/* Mobile Devices */
+@media only screen and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi), only screen and (min-resolution: 1.5dppx), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi) {
+
+	#custom-block-widget ul:last-child li {
+		display: none;
+	}
+
+	.widget[id], #user-menu-widget {
+		margin: 3px 3px 3px 3px;
+		position: relative;
+		max-height: 3em;
+
+		@include vendorize(transition, max-height 1s ease);
+	}
+
+	.widget[id]:hover, #user-menu-widget:hover {
+		max-height: 50em;
+	}
+
+}
+
+/* Sillyness */
+@mixin catmsg {
+	content: "U HAS VRY SMALL SCREEN!";
+	background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
+	background-size: 100% AUTO;
+	font-size: 50px;
+	color: white;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
+
+@media all {
+	@media (max-width: 319px) {
+
+		body > div {display: none;}
+
+		body::before {
+			@include catmsg;
+		}
+	}
+
+	@media (max-width: 200px) {
+
+		body > div {display: none;}
+
+		body::before {
+			@include catmsg;
+
+			content: "U HAS VRY VRY SMALL SCREEN!";
+			font-size: 40px;
+		}
+	}
+
+	@media (max-width: 100px) {
+		body > div {display: none;}
+
+		body::before {
+			content: "";
+			background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
+			background-size: 100% AUTO;
+			font-size: 50px;
+			color: white;
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			left: 0;
+		}
+
+		body::after {
+			left: -300%;
+			top: 50%;
+			width: 700%;
+
+			@include catmsg;
+			@include vendorize(transform, rotate(90deg));
+
+			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /* Ugh IE */
+		}
+	}
+}
+
+/* Personal stuff */
+#post-new-entry::after {content: " of Entriness";}
+
+#explain:not(:empty)::before {
+	content: "7258425873687582878583873678578252783836872587"; /* Tee hee hee... */
+}
+
+#main textarea#message.inputbox {
+	min-height: 50em;
+}
