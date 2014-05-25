@@ -19,23 +19,13 @@ Safari 6 (positioning seems to work differently than in FF, Chrome, and Opera)
 Mobile Safari
 Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
 */
-/* Universal Reset */
-* {
-  margin: 0;
-  padding: 0;
-  -webkit-box-sizing: border-box !important;
-  -moz-box-sizing: border-box !important;
-  -ms-box-sizing: border-box !important;
-  -o-box-sizing: border-box !important;
-  box-sizing: border-box !important; }
-
 /* Blog error animation */
 @-webkit-keyframes error {
   0% {
     background-color: #fff; }
 
   50% {
-    background-color: #fcc; }
+    background-color: #ffcccc; }
 
   100% {
     background-color: #fff; } }
@@ -44,7 +34,7 @@ Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
     background-color: #fff; }
 
   50% {
-    background-color: #fcc; }
+    background-color: #ffcccc; }
 
   100% {
     background-color: #fff; } }
@@ -53,7 +43,7 @@ Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
     background-color: #fff; }
 
   50% {
-    background-color: #fcc; }
+    background-color: #ffcccc; }
 
   100% {
     background-color: #fff; } }
@@ -62,12 +52,12 @@ Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
     background-color: #fff; }
 
   50% {
-    background-color: #fcc; }
+    background-color: #ffcccc; }
 
   100% {
     background-color: #fff; } }
 /* Shouts blink Animation */
-@-webkit-eyframes blink {
+@-webkit-keyframes blink {
   from {
     width: 1px; }
 
@@ -91,6 +81,16 @@ Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
 
   to {
     width: 0; } }
+/* Universal Reset */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  -ms-box-sizing: border-box !important;
+  -o-box-sizing: border-box !important;
+  box-sizing: border-box !important; }
+
 /* Background */
 html {
   min-height: 100%; }
@@ -98,7 +98,7 @@ html {
 body {
   background-color: #fff;
   font-size: 14px;
-  text-rendering: OptimizeLegibility; }
+  text-rendering: 0ptimizeLegibility; }
 
 /* Width stuff */
 #wrapper {
@@ -162,13 +162,6 @@ body {
   /* Add a pen image */
   font-size: 32px; }
 
-/* Edit/delete/report post links */
-.edit-icon, .delete-icon, .report-icon {
-  width: 0px; }
-
-.edit-icon::before {
-  content: "edit"; }
-
 /* Entries */
 .entry {
   background: transparent;
@@ -231,10 +224,6 @@ div.entrywrap {
     -ms-box-shadow: 0px 0px 6px #b2b2b2;
     -o-box-shadow: 0px 0px 6px #b2b2b2;
     box-shadow: 0px 0px 6px #b2b2b2; }
-
-/* Post tags */
-.post-tags a {
-  width: 0px; }
 
 /* Total posts (based on code by NeoMathematicalKid) */
 .total-posts {
@@ -753,142 +742,6 @@ div.entrywrap {
   #blog-errors:hover {
     top: 10px; }
 
-/* LaTeX and Asymptote */
-/* Invert LaTeX colours in #side. Based on code by PythonNut */
-/* Firefox */
-#side img.latex:-moz-any(*,*),
-#side img.latexcenter:not([src*="asyforum"]):-moz-any(*,*) {
-  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important; }
-
-/* Safari 3+, Chrome 1+ */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-  img.latex, img.latexcenter {
-    -webkit-filter: invert(88%) !important;
-    background: none;
-    padding: 0; }
-
-  #side img.latex, #side img.latexcenter:not([src*="asyforum"]) {
-    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important; } }
-/* Links */
-a:link, a:visited {
-  color: #555555;
-  -webkit-transition: color 0.5s ease;
-  -moz-transition: color 0.5s ease;
-  -ms-transition: color 0.5s ease;
-  -o-transition: color 0.5s ease;
-  transition: color 0.5s ease; }
-
-a:link:hover, a:visited:hover {
-  color: #888888; }
-
-/* Usernames */
-a[href*="mode=viewprofile"] {
-  display: inline-block;
-  -webkit-transform: skew(-10deg);
-  -moz-transform: skew(-10deg);
-  -ms-transform: skew(-10deg);
-  -o-transform: skew(-10deg);
-  transform: skew(-10deg);
-  -webkit-transition: all 0.5s ease;
-  -moz-transition: all 0.5s ease;
-  -ms-transition: all 0.5s ease;
-  -o-transition: all 0.5s ease;
-  transition: all 0.5s ease; }
-
-a[href*="mode=viewprofile"]:hover {
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none; }
-
-/* Email addresses */
-a[href^="mailto:"]::after {
-  content: "\2709";
-  /* Add an envelope after the email address */
-  font-size: 20px;
-  padding: 3px; }
-
-/* BBCode stuffs */
-/* Quotes */
-div.quotetitle, div.quotecontent {
-  background-color: transparent;
-  border: none;
-  border-left: 5px solid #c80000;
-  padding-left: 10px; }
-
-div.quotetitle {
-  font-style: italic; }
-
-.quotecontent::before, .quotecontent::after {
-  content: "\201C";
-  font: normal 30px times; }
-
-.quotecontent::after {
-  content: "\201D";
-  position: relative;
-  top: 1em; }
-
-/* Lists */
-ul, ol {
-  padding-left: 30px; }
-
-/* Code */
-.codecontent {
-  background-color: #fff;
-  color: #000;
-  font-family: monospace !important;
-  border: 2px solid #dcdcdc;
-  position: relative;
-  z-index: 0;
-  max-height: 30em;
-  overflow: auto;
-  white-space: pre;
-  border-radius: 20px 20px 3px 3px;
-  margin: 1em 0;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-
-.codecontent > div::before {
-  content: attr(class);
-  background-color: #dcdcdc;
-  position: relative;
-  width: calc(100% + 2px);
-  height: 20px;
-  z-index: 100;
-  display: block;
-  font: bold 14px Arial !important;
-  text-transform: uppercase;
-  border-radius: 20px 20px 0px 0px;
-  /*padding: 0px 0 0px 10px;*/ }
-
-.codetitle {
-  padding-left: 0.75em;
-  border: 2px solid #dcdcdc;
-  border-bottom: none;
-  background-color: transparent !important;
-  border-radius: 100px 100px 0 0;
-  z-index: -100;
-  display: none; }
-
-/* Image size limiter */
-.entrywrap img, #side img {
-  position: relative;
-  max-width: 100%; }
-
-/* Highlighting */
-*::-moz-selection {
-  background-color: #3ca2a2; }
-
-*::selection {
-  background-color: #3ca2a2; }
-
-#side > div::-moz-selection {
-  background: #1e5151; }
-
-#side > div::selection {
-  background: #1e5151; }
-
 /* CSS Icons (heavily based on work by Nicholas Gallagher [read: essentially copied]) */
 .modactions li::before, .modactions li::after,
 .modactions li a::before, .modactions li a::after,
@@ -902,11 +755,7 @@ ul, ol {
 #blog_searchform div::before, #blog_searchform div::after,
 .post-tags a:first-child::before, .post-tags a:first-child::after,
 #tabs a::before, #tabs a::after,
-#tabs a span::before, #tabs a span::after,
-#custom-block-widget ul:nth-last-child(2) li a::before,
-#custom-block-widget ul:nth-last-child(2) li a::after,
-#custom-block-widget ul:nth-last-child(2) li a span::before,
-#custom-block-widget ul:nth-last-child(2) li a span::after {
+#tabs a span::before, #tabs a span::after {
   margin: -8px 0px 0px;
   background: none repeat scroll 0% 0% #000; }
 
@@ -923,11 +772,7 @@ ul, ol {
 .post-tags a:first-child::before, .post-tags a:first-child::after,
 #tabs a::before, #tabs a::after,
 #tabs a span::before, #tabs a span::after,
-#tabs a span::before, #tabs a span::after,
-#custom-block-widget ul:nth-last-child(2) li a::before,
-#custom-block-widget ul:nth-last-child(2) li a::after,
-#custom-block-widget ul:nth-last-child(2) li a span::before,
-#custom-block-widget ul:nth-last-child(2) li a span::after {
+#tabs a span::before, #tabs a span::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -1798,6 +1643,136 @@ ul, ol {
   top: 105px; }
 #blog-errors:hover p::before, #blog-errors:hover p::after {
   top: 105px; }
+
+/* LaTeX and Asymptote */
+/* Invert LaTeX colours in #side. Based on code by PythonNut */
+/* Firefox */
+#side img.latex:-moz-any(*,*),
+#side img.latexcenter:not([src*="asyforum"]):-moz-any(*,*) {
+  filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important; }
+
+/* Safari 3+, Chrome 1+ */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  img.latex, img.latexcenter {
+    -webkit-filter: invert(88%) !important;
+    background: none;
+    padding: 0; }
+
+  #side img.latex, #side img.latexcenter:not([src*="asyforum"]) {
+    filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important; } }
+/* Links */
+a:link, a:visited {
+  color: #555555;
+  -webkit-transition: color 0.5s ease;
+  -moz-transition: color 0.5s ease;
+  -ms-transition: color 0.5s ease;
+  -o-transition: color 0.5s ease;
+  transition: color 0.5s ease; }
+
+a:link:hover, a:visited:hover {
+  color: #888888; }
+
+/* Usernames */
+a[href*="mode=viewprofile"] {
+  display: inline-block;
+  -webkit-transform: skew(-10deg);
+  -moz-transform: skew(-10deg);
+  -ms-transform: skew(-10deg);
+  -o-transform: skew(-10deg);
+  transform: skew(-10deg);
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  transition: all 0.5s ease; }
+
+a[href*="mode=viewprofile"]:hover {
+  -webkit-transform: none;
+  -moz-transform: none;
+  -ms-transform: none;
+  -o-transform: none;
+  transform: none; }
+
+/* Email addresses */
+a[href^="mailto:"]::after {
+  content: "\2709";
+  /* Add an envelope after the email address */
+  font-size: 20px;
+  padding: 3px; }
+
+/* BBCode stuffs */
+/* Quotes */
+div.quotetitle, div.quotecontent {
+  background-color: transparent;
+  border: none;
+  border-left: 5px solid #c80000;
+  padding-left: 10px; }
+
+div.quotetitle {
+  font-style: italic; }
+
+.quotecontent::before, .quotecontent::after {
+  content: "\201C";
+  font: normal 30px times; }
+
+.quotecontent::after {
+  content: "\201D";
+  position: relative;
+  top: 1em; }
+
+/* Lists */
+ul, ol {
+  padding-left: 30px; }
+
+/* Code */
+.codecontent {
+  background-color: #fff;
+  color: #000;
+  font-family: monospace !important;
+  border: 2px solid #dcdcdc;
+  position: relative;
+  z-index: 0;
+  max-height: 30em;
+  overflow: auto;
+  white-space: pre;
+  border-radius: 20px 20px 3px 3px;
+  margin: 1em 0;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.codecontent > div::before {
+  content: attr(class);
+  background-color: #dcdcdc;
+  position: relative;
+  width: calc(100% + 2px);
+  height: 20px;
+  z-index: 100;
+  display: block;
+  font: bold 14px Arial !important;
+  text-transform: uppercase;
+  border-radius: 20px 20px 0px 0px;
+  padding-left: 15px; }
+
+.codetitle {
+  display: none; }
+
+/* Image size limiter */
+.entrywrap img, #side img {
+  position: relative;
+  max-width: 100%; }
+
+/* Highlighting */
+*::-moz-selection {
+  background-color: #3ca2a2; }
+
+*::selection {
+  background-color: #3ca2a2; }
+
+#side > div::-moz-selection {
+  background: #1e5151; }
+
+#side > div::selection {
+  background: #1e5151; }
 
 /* Mobile style */
 @-webkit-viewport {

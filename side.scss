@@ -1,0 +1,384 @@
+/* Side */
+#side .codecontent {text-align: left;}
+
+/* Widgets */
+.widget[id], #user-menu-widget {
+	background:  rgba(0, 0, 0, 0.9);
+	color: #ccc;
+	position: fixed;
+	z-index: 1;
+	left: 0px;
+	top: 100%; /* Move the element just below the screen */
+	width: 100%; /* Make the element as wide as the screen */
+	height: 100%; /* Make the element as tall as the screen */
+	text-align: center; /* Center the text */
+	overflow: auto; /* Insert scrollbars, if neccesary */
+	
+	@include vendorize(transition, top 0.5s ease);
+}
+
+.widget-title {padding-top: calc(1em + 4px) !important;}
+.widget-title, .widget-content {
+	position: relative;
+	left: 20%;
+	width: 60%;
+	overflow: auto;
+}
+
+/* When the user clicks a link */
+#user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
+#custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {top: 0%;}
+
+#user-menu-widget:target ~ #{$iconParent}:last-child a,
+#archive-widget:target ~ #{$iconParent}:last-child a,
+#shouts-widget:target ~ #{$iconParent}:last-child a,
+#contrib-widget:target ~ #{$iconParent}:last-child a,
+#categories-widget:target ~ #{$iconParent}:last-child a,
+#tags-widget:target ~ #{$iconParent}:last-child a,
+#custom-block-widget:target ul:last-child li:last-child a,
+#wrapper:target #{$iconParent}:last-child a,
+#content:target #{$iconParent}:last-child a,
+#side:target #{$iconParent}:last-child a {display: block;}
+
+/* Display/hide links */
+#{$iconParent} {
+	list-style-type: none;
+
+	a {
+		position: fixed;
+		z-index: 2;
+		width: 10%;
+		height: 20px;
+		background-color: #fff;
+	}
+
+	&:last-child a {
+		left: 45%;
+		top: 0%;
+		display: none; /* Hide the hide link */
+
+		@include vendorize(border-radius, 0 0 20px 20px);
+
+		@include vendorize(box-shadow, 0px 3px 5px #000);
+	}
+
+	// Display links
+	&:not(:last-child) a {
+		top: calc(100% - 20px);
+		
+		@include vendorize(border-radius, 20px 20px 0 0);
+
+		@include vendorize(box-shadow, 0px -3px 5px #000);
+
+		@include vendorize(transition, top 0.5s ease);
+	}
+
+	// Display link positioning
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) a {
+			left: 10 * $i - 10%;
+		}
+	}
+}
+
+/* Move a link down when clicked */
+#user-menu-widget:target ~ #{$iconParent}:nth-child(1) a,
+#archive-widget:target ~ #{$iconParent}:nth-child(2) a,
+#shouts-widget:target ~ #{$iconParent}:nth-child(3) a,
+#tags-widget:target ~ #{$iconParent}:nth-child(4) a,
+#contrib-widget:target ~ #{$iconParent}:nth-child(5) a,
+#categories-widget:target ~ #{$iconParent}:nth-child(6) a,
+#custom-block-widget:target ul:last-child li:nth-child(7) a,
+#wrapper:target #{$iconParent}:nth-child(8) a,
+#content:target #{$iconParent}:nth-child(9) a,
+#side:target #{$iconParent}:nth-child(10) a {
+	top: calc(100% - 10px);
+}
+
+/* Shouts */
+#shouts-widget {
+	fieldset {
+		border: none;
+
+		> ul > li {
+			@include vendorize(border-radius, 2px);
+	
+			@include vendorize(box-shadow, none);
+			
+			@include vendorize(transition, box-shadow 1s ease);
+
+			&:hover {
+				@include vendorize(box-shadow, 0px 0px 6px #000);
+			}
+		}
+
+		&:nth-child(1) {
+			border-top: 2px solid #000;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+		}
+
+		&:nth-child(2) {
+			position: relative;
+			border-left: 2px solid #000;
+			border-right: 2px solid #000;
+
+			&::before {
+				content: "";
+				position: absolute;
+				width: 100%;
+				left: -2px;
+				height: 50px;
+				top: -30px;
+				border-left: 2px solid #000;
+				border-right: 2px solid #000;
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				width: 100%;
+				left: -2px;
+				height: 27px;
+				top: 65px;
+				border-left: 2px solid #000;
+				border-right: 2px solid #000;
+			}
+		}
+	}
+
+	#shout_post::after {
+		content: "";
+		position: relative;
+		width: 100%;
+		height: 20px;
+	}
+
+	// Delete Buttons
+	fieldset:nth-child(3) {   
+		margin: 0;
+		padding: 0;
+
+		input {
+			background: #000;
+			color: #999;
+			position: relative;
+			border: none;
+			width: 50%;
+			height: 20px;
+			top: 1px;
+			float: left;
+			margin: 0 !important;
+			
+				
+			
+			@include vendorize(transition, 1s ease);
+		
+
+			&:hover {
+				@include vendorize(border-radius, 0, $important: "y");
+			}
+
+			&:first-child {    
+				@include vendorize(border-bottom-left-radius, 100px);
+			}
+
+			&:last-child {				
+				
+				
+				@include vendorize(border-bottom-right-radius, 100px);
+			}
+		}
+	}
+
+	// Shouts page select
+	fieldset:nth-child(2) div {
+		position: relative;
+		background-color: transparent;
+		margin-top: 15px;
+		text-align: center;
+		
+		> a,
+		> strong {
+			display: inline-block;
+			border: 1px solid transparent;
+			max-width: $fontSize;
+			max-height: 75%;
+			background: #e1e1e2;
+			color: transparent;
+			font-size: 75%;
+			line-height: $fontSize;
+			padding: 0 3.5px;
+			margin: 0 5px;
+			
+			@include vendorize(border-radius, 50px);
+			@include vendorize(transition, all 0.7s ease);
+		}
+
+		> strong:first-of-type {
+			background: #cccccd;
+		}
+
+		> a:hover,
+		> strong:first-of-type:hover {
+			background-color: transparent;
+			max-width: 100%;
+			color: gray;
+			text-decoration: none;
+			text-indent: -1.5px;
+			text-indent: -webkit-calc(-2px);
+			padding-left: 5px;
+			
+			@include vendorize(transform, scale(1.2));
+		}
+
+		> strong:first-of-type:hover {
+			border-color: #cccccd;
+		}
+
+		> a:hover {
+			border-color: #e1e1e2;
+		}
+	}
+
+	.row1,  .row2 {
+		color: #999;
+		background: rgba(0, 0, 0, 0.45);
+		padding: 1em;
+		margin: 0 0 0.5em;
+
+		@include vendorize(border-radius, 1em);
+	}
+
+	// Post Shout Form
+	#message.inputbox {
+		position: relative;
+		background: #000;
+		color: #999;
+		left: -11px;
+		top: 11px;
+		width: calc(100% + 9px);
+		
+		border: 1px solid black;
+		border-bottom: none;
+	}
+
+	// Submit Buttons
+	.submit-buttons {
+		border: none;    
+		margin: 0;
+		padding: 0;
+		
+		
+
+		input {
+			background: #000;
+			color: #999;
+			position: relative;
+			border-width: 1px;
+			border-color: #000;
+			width: 50%;
+			height: 20px;
+			top: 1px;
+			float: left;
+			margin: 0 !important;
+			
+				
+			
+			@include vendorize(transition, 1s ease);
+		
+
+			&:hover {
+				@include vendorize(border-radius, 0, $important: "y");
+			}
+
+			&:first-child {    
+				@include vendorize(border-bottom-left-radius, 100px);
+			}
+
+			&:last-child {
+				border-left: none;
+				top: 1px;
+				
+				
+				
+				@include vendorize(border-bottom-right-radius, 100px);
+			}
+		}
+	}
+}
+
+.widget-content li:last-child {border-bottom: none;}
+
+/* About Owner */
+#about-owner-widget {z-index: 0;}
+
+/* Blog Stats */
+#stats-widget {z-index: 0;}
+
+/* Search Blogs */
+#stats-widget + .widget {
+	position: relative;
+	width: 100%;
+	left: 0%;
+}
+
+#blog_searchform {
+	#blog_keywords {
+		border: {
+			width: 1px 1px 0 1px;
+			color: #000;
+		}
+	
+		
+	}
+
+	div {
+		margin-top: 0 !important;
+			
+		.button2 {
+			position: relative;
+			width: 100%;
+			border: 1px solid #000;
+			background: transparent;
+
+			@include vendorize(border-radius, 0  0 100px 100px);
+
+			@include vendorize(transition, 1s ease);
+
+			&:hover {
+				@include vendorize(border-radius, 0);
+			}
+		}
+	}
+}
+
+/* RSS Feed */
+#feed-widget {z-index: 0;}
+
+/* Blog errors */
+$beMoveAmount: 95px;
+#blog-errors {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid #f00;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	left: 10%;
+	top: -85px;
+	width: 80%;
+	height: 80px;
+	z-index: 2;
+
+	overflow: auto;
+	
+	
+	@include vendorize(border-radius, 4px);
+	@include vendorize(box-shadow, 0px 0px 4px #f00);
+	@include vendorize(animation, error 3s linear infinite);
+	@include vendorize(transition, top 1s ease);
+
+	&:hover {
+		top: -85px + $beMoveAmount;
+	}
+}

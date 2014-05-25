@@ -1,0 +1,51 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+/* Entries */
+.entry {
+	background: transparent;
+	border: none !important;
+	
+	@include vendorize(border-radius, 2px);
+	
+	@include vendorize(box-shadow, none);
+	
+	@include vendorize(transition, box-shadow 1s ease);
+}
+
+.entry:hover {
+	@include vendorize(box-shadow, 0px 0px 6px #b2b2b2);
+}
+
+.entry > h2 {
+	color: #000;
+}
+
+.entry > h2 img, .author img {
+	display: none;
+}
+
+.entry > h2::before, .author::before {
+	content: ">";
+	padding: 3px;
+}
+
+div.entrywrap {
+	background: transparent;
+	border: none;
+	margin: 0px;
+	padding-left: 3px;
+}
+
+/* Comments */
+.comment {
+	border: none !important;
+	
+	@include vendorize(border-radius, 2px);
+	
+	@include vendorize(transition, box-shadow 1s ease);
+	
+	&:hover {
+		@include vendorize(box-shadow, 0px 0px 6px #b2b2b2);
+	}
+}

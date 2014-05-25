@@ -1,0 +1,65 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+/* BBCode stuffs */
+/* Quotes */
+div.quotetitle, div.quotecontent {
+	background-color: transparent;
+	border: none;
+	border-left: 5px solid #c80000;
+	padding-left: 10px;
+}
+div.quotetitle {
+	font-style: italic;
+}
+
+.quotecontent::before {
+	content: $openQuote;
+	font: normal 30px times;
+}
+
+.quotecontent::after {
+	@extend .quotecontent::before;
+
+	content: $closeQuote;
+	position: relative;
+	top: 1em;
+}
+
+/* Lists */
+ul, ol {
+	padding-left: 30px;
+}
+
+/* Code */
+.codecontent {
+	background-color: #fff;
+	color: #000;
+	font-family: monospace !important;
+	border: 2px solid #dcdcdc;
+	position: relative;
+	z-index: 0;
+	max-height: 30em;
+	overflow: auto;
+	white-space: pre;
+	border-radius: 20px 20px 3px 3px;
+	margin: 1em 0;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.codecontent > div::before {
+	content: attr(class);
+	background-color: #dcdcdc;
+	position: relative;
+	width: calc(100% + 2px);
+	height: 20px;
+	z-index: 100;
+	display: block;
+	font: bold 14px Arial !important;
+	text-transform: uppercase;
+	border-radius: 20px 20px 0px 0px;
+	padding-left: 15px;
+}
+
+.codetitle {display: none;}

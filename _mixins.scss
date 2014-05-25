@@ -1,0 +1,58 @@
+// Vender prefix mixin
+@mixin vendorize($property, $value, $important: no) {
+	@if $important != no {
+		-webkit-#{$property}: $value !important;
+		   -moz-#{$property}: $value !important;
+			-ms-#{$property}: $value !important;
+			 -o-#{$property}: $value !important;
+				#{$property}: $value !important;
+	}
+
+	@else {
+		-webkit-#{$property}: $value;
+		   -moz-#{$property}: $value;
+			-ms-#{$property}: $value;
+			 -o-#{$property}: $value;
+				#{$property}: $value;
+	}
+}
+
+// linear-gradient mixin
+@mixin linear-gradient($angle, $colourStops...) {
+	background-image: -webkit-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:    -moz-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:     -ms-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:      -o-linear-gradient(#{$angle}, #{$colourStops});
+	background-image:         linear-gradient(#{$angle}, #{$colourStops});
+}
+
+// @keyframes mixin
+@mixin keyframes($name) {
+	@-webkit-keyframes #{$name} {
+		@content;
+	}
+
+	@-moz-keyframes #{$name} {
+		@content;
+	}
+
+	@-o-keyframes #{$name} {
+		@content;
+	}
+
+	@keyframes #{$name} {
+		@content;
+	}
+}
+
+@mixin catmsg {
+	content: "U HAS VRY SMALL SCREEN!";
+	background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
+	background-size: 100% AUTO;
+	font-size: 50px;
+	color: white;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	left: 0;
+}
