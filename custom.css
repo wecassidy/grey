@@ -1756,6 +1756,21 @@ ul, ol {
 .codetitle {
   display: none; }
 
+div.codecontent ol {
+  padding-left: 2em;
+  counter-reset: item;
+  list-style-type: none; }
+
+div.codecontent li:before {
+  content: counter(item,decimal);
+  display: inline-block;
+  min-width: 2em;
+  counter-increment: item;
+  color: #AAA;
+  margin-left: -2em;
+  padding: 0 10px;
+  text-align: right; }
+
 /* Image size limiter */
 .entrywrap img, #side img {
   position: relative;

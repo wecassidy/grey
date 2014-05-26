@@ -1,0 +1,55 @@
+/* Total posts (based on code by NeoMathematicalKid) */
+.total-posts {
+	position: relative;
+	color: transparent;
+	background-color: transparent;
+	margin-top: 15px;
+	text-align: center;
+
+
+	> span:last-child {
+		color: silver;
+		float: left;
+		margin-left: -7px;
+		width: 100%;
+	
+		> a,
+		> strong {
+			display: inline-block;
+			max-width: $fontSize;
+			background: #e1e1e2;
+			color: transparent;
+			font-size: 75%;
+			padding: 0 3.5px;
+			margin: 0 5px;
+			
+			@include vendorize(border-radius, 50px);
+			@include vendorize(transition, all 0.7s ease);
+		}
+
+		> strong:first-of-type {
+			background: #cccccd;
+		}
+
+		> a:hover,
+		> strong:first-of-type:hover {
+			background-color: transparent;
+			max-width: 100%;
+			color: gray;
+			text-decoration: none;
+			text-indent: -1.5px;
+			text-indent: -webkit-calc(-2px);
+			padding-left: 5px;
+			
+			@include vendorize(transform, scale(1.2));
+		}
+
+		> strong:first-of-type:hover {
+			border: 1px solid #cccccd;
+		}
+
+		> a:hover {
+			border: 1px solid #e1e1e2;
+		}
+	}
+}
