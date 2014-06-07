@@ -17,28 +17,9 @@
 	}
 }
 
-// @keyframes mixin
-@mixin keyframes($name) {
-	@-webkit-keyframes #{$name} {
-		@content;
-	}
-
-	@-moz-keyframes #{$name} {
-		@content;
-	}
-
-	@-o-keyframes #{$name} {
-		@content;
-	}
-
-	@keyframes #{$name} {
-		@content;
-	}
-}
-
 @mixin catmsg {
 	content: "U HAS VRY SMALL SCREEN!";
-	background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
+	background-image: url(#{$catURL});
 	background-size: 100% AUTO;
 	font-size: 50px;
 	color: white;

@@ -2,7 +2,7 @@
 @import "_mixins.scss";
 
 /* Blog error animation */
-@include keyframes("error") {
+@keyframes error {
 	0% {background-color: #fff;}
 	
 	50% {background-color: $bePinkColour;}
@@ -11,7 +11,7 @@
 }
 
 /* Shouts blink Animation */
-@include keyframes("blink ") {
+@keyframes blink {
 	from {width: 1px;}
 
 	to {width: 0;}
