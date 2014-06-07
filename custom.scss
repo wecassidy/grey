@@ -7,17 +7,6 @@ This theme was inspired by NeoMathematicalKid's Fresh, PythonNut's Libre, and as
 Dawn. Thanks to NeoMathematicalKid, PythonNut, knittingfrenzy18, asf, and the folks at MDN for helping me to learn CSS.
 
 This code is released under the GNU GPLv3 license. The full legal text of the license is available at https://www.gnu.org/copyleft/gpl.html .
-
-Compatibility stuffs (OUT OF DATE):
-Perfect:
-Firefox 27
-Chrome 30
-Opera 17
-
-Poor:
-Safari 6 (positioning seems to work differently than in FF, Chrome, and Opera)
-Mobile Safari
-Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
 */
 
 // TODO Update compatibility table
@@ -38,7 +27,7 @@ Mobile Chrome (hey hey cool it crashes Chrome on my iPad)
 	margin: 0;
 	padding: 0;
 
-	@include vendorize(box-sizing, border-box, $important: y);
+	box-sizing: border-box !important;
 }
 
 /* Background */
@@ -49,7 +38,7 @@ html {
 body {
 	background-color: #fff;
 	font-size: $fontSize;
-	text-rendering: 0ptimizeLegibility;
+	text-rendering: optimizeLegibility;
 }
 
 /* Width stuff */
@@ -88,7 +77,8 @@ body {
 	color: transparent;
 	padding: 0;
 
-	@include vendorize(overflow-x, auto);
+	overflow-x: auto;
+
 	a {
 		color: $aColour;
 
@@ -155,15 +145,15 @@ body {
 			
 				
 			
-			@include vendorize(transition, 1s ease);
+			transition: 1s ease;
 		
 
 			&:hover {
-				@include vendorize(border-radius, 0, $important: "y");
+				border-radius: 0 !important;
 			}
 
 			&:first-child {    
-				@include vendorize(border-bottom-left-radius, 100px);
+				border-bottom-left-radius: 100px;
 			}
 
 			&:last-child {
@@ -172,7 +162,7 @@ body {
 				
 				
 				
-				@include vendorize(border-bottom-right-radius, 100px);
+				border-bottom-right-radius: 100px;
 			}
 		}
 	}
@@ -184,33 +174,38 @@ body {
 // Icons
 @import "icons.scss";
 
-/* LaTeX and Asymptote */
-/* Invert LaTeX colours in #side. Based on code by PythonNut */
-/* Firefox */
-#side img.latex:-moz-any(*,*),
-#side img.latexcenter:not([src*="asyforum"]):-moz-any(*,*) {
-	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
-}
+/* Blog errors */
+$beMoveAmount: 95px;
+#blog-errors {
+	position: fixed;
+	background-color: rgba(255, 255, 255, 0.9);
+	border: 2px solid #f00;
+	padding-top: 30px;
+	padding-bottom: 30px;
+	left: 10%;
+	top: -85px;
+	width: 80%;
+	height: 80px;
+	z-index: 2;
 
-/* Safari 3+, Chrome 1+ */
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
-	img.latex, img.latexcenter {
-		-webkit-filter: invert(88%) !important;
-		background: none;
-		padding: 0;
+	overflow: auto;
+	
+	
+	border-radius: 4px;
+	box-shadow: 0px 0px 4px #f00;
+	animation: error 3s linear infinite;
+	transition: top 1s ease;
+
+	&:hover {
+		top: -85px + $beMoveAmount;
 	}
-
-	#side img.latex, #side img.latexcenter:not([src*="asyforum"]) {
-		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
-	}
 }
-
 
 /* Links */
 a:link, a:visited {
 	color: $aColour;
 	
-	@include vendorize(transition, color 0.5s ease);
+	transition: color 0.5s ease;
 }
 
 a:link:hover, a:visited:hover {
@@ -221,13 +216,13 @@ a:link:hover, a:visited:hover {
 a[href*="mode=viewprofile"] {
 	display: inline-block;
 	
-	@include vendorize(transform, skew(-10deg));
+	transform: skew(-10deg);
 			
-	@include vendorize(transition, all 0.5s ease);
+	transition: all 0.5s ease;
 }
 
 a[href*="mode=viewprofile"]:hover {
-	@include vendorize(transform, none);
+	transform: none;
 }
 
 /* Email addresses */
@@ -282,7 +277,7 @@ a[href^="mailto:"]::after {
 		position: relative;
 		max-height: 3em;
 
-		@include vendorize(transition, max-height 1s ease);
+		transition: max-height 1s ease;
 	}
 
 	.widget[id]:hover, #user-menu-widget:hover {
@@ -335,20 +330,9 @@ a[href^="mailto:"]::after {
 			width: 700%;
 
 			@include catmsg;
-			@include vendorize(transform, rotate(90deg));
+			transform: rotate(90deg);
 
 			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /* Ugh IE */
 		}
 	}
-}
-
-/* Personal stuff */
-#post-new-entry::after {content: " of Entriness";}
-
-#explain:not(:empty)::before {
-	content: "7258425873687582878583873678578252783836872587"; /* Tee hee hee... */
-}
-
-#main textarea#message.inputbox {
-	min-height: 50em;
 }

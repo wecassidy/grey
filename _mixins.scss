@@ -17,15 +17,6 @@
 	}
 }
 
-// linear-gradient mixin
-@mixin linear-gradient($angle, $colourStops...) {
-	background-image: -webkit-linear-gradient(#{$angle}, #{$colourStops});
-	background-image:    -moz-linear-gradient(#{$angle}, #{$colourStops});
-	background-image:     -ms-linear-gradient(#{$angle}, #{$colourStops});
-	background-image:      -o-linear-gradient(#{$angle}, #{$colourStops});
-	background-image:         linear-gradient(#{$angle}, #{$colourStops});
-}
-
 // @keyframes mixin
 @mixin keyframes($name) {
 	@-webkit-keyframes #{$name} {

@@ -14,7 +14,7 @@
 	text-align: center; /* Center the text */
 	overflow: auto; /* Insert scrollbars, if neccesary */
 	
-	@include vendorize(transition, top 0.5s ease);
+	transition: top 0.5s ease;
 }
 
 .widget-title {padding-top: calc(1em + 4px) !important;}
@@ -57,20 +57,20 @@
 		top: 0%;
 		display: none; /* Hide the hide link */
 
-		@include vendorize(border-radius, 0 0 20px 20px);
+		border-radius: 0 0 20px 20px;
 
-		@include vendorize(box-shadow, 0px 3px 5px #000);
+		box-shadow: 0px 3px 5px #000;
 	}
 
 	// Display links
 	&:not(:last-child) a {
 		top: calc(100% - 20px);
 		
-		@include vendorize(border-radius, 20px 20px 0 0);
+		border-radius: 20px 20px 0 0;
 
-		@include vendorize(box-shadow, 0px -3px 5px #000);
+		box-shadow: 0px -3px 5px #000;
 
-		@include vendorize(transition, top 0.5s ease);
+		transition: top 0.5s ease;
 	}
 
 	// Display link positioning
@@ -101,14 +101,14 @@
 		border: none;
 
 		> ul > li {
-			@include vendorize(border-radius, 2px);
+			border-radius: 2px;
 	
-			@include vendorize(box-shadow, none);
+			box-shadow: none;
 			
-			@include vendorize(transition, box-shadow 1s ease);
+			transition: box-shadow 1s ease;
 
 			&:hover {
-				@include vendorize(box-shadow, 0px 0px 6px #000);
+				box-shadow: 0px 0px 6px #000;
 			}
 		}
 
@@ -172,21 +172,21 @@
 			
 				
 			
-			@include vendorize(transition, 1s ease);
+			transition: 1s ease;
 		
 
 			&:hover {
-				@include vendorize(border-radius, 0, $important: "y");
+				border-radius: 0 !important;
 			}
 
 			&:first-child {    
-				@include vendorize(border-bottom-left-radius, 100px);
+				border-bottom-left-radius: 100px;
 			}
 
 			&:last-child {				
 				
 				
-				@include vendorize(border-bottom-right-radius, 100px);
+				border-bottom-right-radius: 100px;
 			}
 		}
 	}
@@ -211,8 +211,8 @@
 			padding: 0 3.5px;
 			margin: 0 5px;
 			
-			@include vendorize(border-radius, 50px);
-			@include vendorize(transition, all 0.7s ease);
+			border-radius: 50px;
+			transition: all 0.7s ease;
 		}
 
 		> strong:first-of-type {
@@ -229,7 +229,7 @@
 			text-indent: -webkit-calc(-2px);
 			padding-left: 5px;
 			
-			@include vendorize(transform, scale(1.2));
+			transform: scale(1.2);
 		}
 
 		> strong:first-of-type:hover {
@@ -247,7 +247,7 @@
 		padding: 1em;
 		margin: 0 0 0.5em;
 
-		@include vendorize(border-radius, 1em);
+		border-radius: 1em;
 	}
 
 	// Post Shout Form
@@ -285,15 +285,15 @@
 			
 				
 			
-			@include vendorize(transition, 1s ease);
+			transition: 1s ease;
 		
 
 			&:hover {
-				@include vendorize(border-radius, 0, $important: "y");
+				border-radius: 0 !important;
 			}
 
 			&:first-child {    
-				@include vendorize(border-bottom-left-radius, 100px);
+				border-bottom-left-radius: 100px;
 			}
 
 			&:last-child {
@@ -302,7 +302,7 @@
 				
 				
 				
-				@include vendorize(border-bottom-right-radius, 100px);
+				border-bottom-right-radius: 100px;
 			}
 		}
 	}
@@ -342,12 +342,12 @@
 			border: 1px solid #000;
 			background: transparent;
 
-			@include vendorize(border-radius, 0  0 100px 100px);
+			border-radius: 0  0 100px 100px;
 
-			@include vendorize(transition, 1s ease);
+			transition: 1s ease;
 
 			&:hover {
-				@include vendorize(border-radius, 0);
+				border-radius: 0;
 			}
 		}
 	}
@@ -356,29 +356,22 @@
 /* RSS Feed */
 #feed-widget {z-index: 0;}
 
-/* Blog errors */
-$beMoveAmount: 95px;
-#blog-errors {
-	position: fixed;
-	background-color: rgba(255, 255, 255, 0.9);
-	border: 2px solid #f00;
-	padding-top: 30px;
-	padding-bottom: 30px;
-	left: 10%;
-	top: -85px;
-	width: 80%;
-	height: 80px;
-	z-index: 2;
+/* Invert LaTeX colours in #side. Based on code by PythonNut */
+/* Firefox */
+#side img.latex:-moz-any(*,*),
+#side img.latexcenter:not([src*="asyforum"]):-moz-any(*,*) {
+	filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
+}
 
-	overflow: auto;
-	
-	
-	@include vendorize(border-radius, 4px);
-	@include vendorize(box-shadow, 0px 0px 4px #f00);
-	@include vendorize(animation, error 3s linear infinite);
-	@include vendorize(transition, top 1s ease);
+/* Safari 3+, Chrome 1+ */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+	img.latex, img.latexcenter {
+		-webkit-filter: invert(88%) !important;
+		background: none;
+		padding: 0;
+	}
 
-	&:hover {
-		top: -85px + $beMoveAmount;
+	#side img.latex, #side img.latexcenter:not([src*="asyforum"]) {
+		filter: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'><filter id='grayscale'><feColorMatrix type='matrix' values='-1 0 0 0 1   -1 0 0 0 1   -1 0 0 0 1 0 0 0 1 0'/></filter></svg>#grayscale") !important;
 	}
 }
