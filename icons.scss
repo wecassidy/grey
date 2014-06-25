@@ -18,7 +18,7 @@
 .post-tags a:first-child::before, .post-tags a:first-child::after,
 #tabs a::before, #tabs a::after,
 #tabs a span::before, #tabs a span::after,
-.codecontent::before, .codecontent::after {
+#{$codeIcon}::before, #{$codeIcon}::after {
 	margin: -8px 0px 0px;
 	background: none repeat scroll 0% 0% #000;
 }
@@ -37,7 +37,7 @@
 #tabs a::before, #tabs a::after,
 #tabs a span::before, #tabs a span::after,
 #tabs a span::before, #tabs a span::after,
-.codecontent::before, .codecontent::after {
+#{$codeIcon}::before, #{$codeIcon}::after {
 	content: "";
 	position: absolute;
 	top: 50%;
@@ -1063,17 +1063,17 @@
 }
 
 /* Code */
-.codecontent {
-	position:relative;
+#{$codeIcon} {
+	position: relative;
 
-	&:before,
-	&:after{
-		top: 10px;
+	&::before,
+	&::after{
+		top: -15px;
 		left: 10px;
 	}
 
 
-	&:before {
+	&::before {
 		content: ">";
 		font: 900 5px monospace;
 		background: #fff;
@@ -1084,7 +1084,7 @@
 		border-radius: 2px;
 	}
 
-	&:after {
+	&::after {
 		background: transparent;
 		border: 5px solid transparent;
 		border-width: 0 11px 5px;
@@ -1092,6 +1092,6 @@
 	}
 }
 
-#side .codecontent::after {
+#side #{$codeIcon}::after {
 	margin-top: -13px;
 }

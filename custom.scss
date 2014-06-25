@@ -14,13 +14,13 @@ This code is released under the GNU GPLv3 license. The full legal text of the li
 // TODO Style blog search
 
 // Variables stylesheet
-@import "_variables.scss";
+@import "variables";
 
 // Mixins stylesheet
-@import "_mixins.scss";
+@import "mixins";
 
 // Animations
-@import "animations.scss";
+@import "animations";
 
 /* Universal Reset */
 * {
@@ -102,10 +102,10 @@ body {
 }
 
 // Entries
-@import "entries.scss";
+@import "entries";
 
 // Total-posts
-@import "total-posts.scss";
+@import "total-posts";
 
 /* Post form */
 .fields1:first-child {
@@ -169,10 +169,10 @@ body {
 }
 
 // Side
-@import "side.scss";
+@import "side";
 
 // Icons
-@import "icons.scss";
+@import "icons";
 
 /* Blog errors */
 $beMoveAmount: 95px;
@@ -233,7 +233,7 @@ a[href^="mailto:"]::after {
 }
 
 // BBCode
-@import "bbcode.scss";
+@import "bbcode";
 
 /* Image size limiter */
 .entrywrap img, #side img {

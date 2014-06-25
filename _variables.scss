@@ -21,8 +21,9 @@ $closeQuote: "\201D";
 $beMoveAmount: 95px;
 $bePinkColour: #fcc;
 
-// Icon parent element selector
+// Icon element selectors
 $iconParent: "#custom-block-widget ul:last-child li";
+$codeIcon: ".codecontent > div > ol";
 
 // Images
 $catURL: "http://tungsten.site40.net/css/CatSurprised.jpg";
