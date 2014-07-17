@@ -23,3 +23,5 @@ Temporary Items
 
 # S(C|A)SS
 .sass-cache
+.sass-cache/
+.sass-cache/*
