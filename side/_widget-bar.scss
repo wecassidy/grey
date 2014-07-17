@@ -2,21 +2,21 @@
 
 /* When the user clicks a link */
 #user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
-#custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {top: 0%;}
+#custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {top: 0;}
 
-#user-menu-widget:target ~ #{$iconParent}:last-child a,
-#archive-widget:target ~ #{$iconParent}:last-child a,
-#shouts-widget:target ~ #{$iconParent}:last-child a,
-#contrib-widget:target ~ #{$iconParent}:last-child a,
-#categories-widget:target ~ #{$iconParent}:last-child a,
-#tags-widget:target ~ #{$iconParent}:last-child a,
+#user-menu-widget:target ~ #{$widgetLink}:last-child a,
+#archive-widget:target ~ #{$widgetLink}:last-child a,
+#shouts-widget:target ~ #{$widgetLink}:last-child a,
+#contrib-widget:target ~ #{$widgetLink}:last-child a,
+#categories-widget:target ~ #{$widgetLink}:last-child a,
+#tags-widget:target ~ #{$widgetLink}:last-child a,
 #custom-block-widget:target ul:last-child li:last-child a,
-#wrapper:target #{$iconParent}:last-child a,
-#content:target #{$iconParent}:last-child a,
-#side:target #{$iconParent}:last-child a {display: block;}
+#wrapper:target #{$widgetLink}:last-child a,
+#content:target #{$widgetLink}:last-child a,
+#side:target #{$widgetLink}:last-child a {display: block;}
 
 /* Display/hide links */
-#{$iconParent} {
+#{$widgetLink} {
 	list-style-type: none;
 
 	a {
@@ -29,12 +29,12 @@
 
 	&:last-child a {
 		left: 45%;
-		top: 0%;
+		top: 0;
 		display: none; /* Hide the hide link */
 
 		border-radius: 0 0 20px 20px;
 
-		box-shadow: 0px 3px 5px #000;
+		box-shadow: 0 3px 5px #000;
 	}
 
 	// Display links
@@ -43,7 +43,7 @@
 		
 		border-radius: 20px 20px 0 0;
 
-		box-shadow: 0px -3px 5px #000;
+		box-shadow: 0 -3px 5px #000;
 
 		transition: top 0.5s ease;
 	}
@@ -57,15 +57,15 @@
 }
 
 /* Move a link down when clicked */
-#user-menu-widget:target ~ #{$iconParent}:nth-child(1) a,
-#archive-widget:target ~ #{$iconParent}:nth-child(2) a,
-#shouts-widget:target ~ #{$iconParent}:nth-child(3) a,
-#tags-widget:target ~ #{$iconParent}:nth-child(4) a,
-#contrib-widget:target ~ #{$iconParent}:nth-child(5) a,
-#categories-widget:target ~ #{$iconParent}:nth-child(6) a,
+#user-menu-widget:target ~ #{$widgetLink}:nth-child(1) a,
+#archive-widget:target ~ #{$widgetLink}:nth-child(2) a,
+#shouts-widget:target ~ #{$widgetLink}:nth-child(3) a,
+#tags-widget:target ~ #{$widgetLink}:nth-child(4) a,
+#contrib-widget:target ~ #{$widgetLink}:nth-child(5) a,
+#categories-widget:target ~ #{$widgetLink}:nth-child(6) a,
 #custom-block-widget:target ul:last-child li:nth-child(7) a,
-#wrapper:target #{$iconParent}:nth-child(8) a,
-#content:target #{$iconParent}:nth-child(9) a,
-#side:target #{$iconParent}:nth-child(10) a {
+#wrapper:target #{$widgetLink}:nth-child(8) a,
+#content:target #{$widgetLink}:nth-child(9) a,
+#side:target #{$widgetLink}:nth-child(10) a {
 	top: calc(100% - 10px);
 }

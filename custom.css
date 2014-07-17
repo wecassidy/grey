@@ -107,7 +107,7 @@ body {
   transition: box-shadow 1s ease; }
 
 .entry:hover {
-  box-shadow: 0px 0px 6px #b2b2b2; }
+  box-shadow: 0 0 6px #b2b2b2; }
 
 .entry > h2 {
   color: #000; }
@@ -122,7 +122,7 @@ body {
 div.entrywrap {
   background: transparent;
   border: none;
-  margin: 0px;
+  margin: 0;
   padding-left: 3px; }
 
 /* Comments */
@@ -131,7 +131,7 @@ div.entrywrap {
   border-radius: 2px;
   transition: box-shadow 1s ease; }
   .comment:hover {
-    box-shadow: 0px 0px 6px #b2b2b2; }
+    box-shadow: 0 0 6px #b2b2b2; }
 
 /* Total posts (based on code by NeoMathematicalKid) */
 .total-posts {
@@ -221,7 +221,7 @@ div.entrywrap {
   color: #ccc;
   position: fixed;
   z-index: 1;
-  left: 0px;
+  left: 0;
   top: 100%;
   /* Move the element just below the screen */
   width: 100%;
@@ -247,7 +247,7 @@ div.entrywrap {
 /* When the user clicks a link */
 #user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
 #custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {
-  top: 0%; }
+  top: 0; }
 
 #user-menu-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
 #archive-widget:target ~ #custom-block-widget ul:last-child li:last-child a,
@@ -272,15 +272,15 @@ div.entrywrap {
     background-color: #fff; }
   #custom-block-widget ul:last-child li:last-child a {
     left: 45%;
-    top: 0%;
+    top: 0;
     display: none;
     /* Hide the hide link */
     border-radius: 0 0 20px 20px;
-    box-shadow: 0px 3px 5px #000; }
+    box-shadow: 0 3px 5px #000; }
   #custom-block-widget ul:last-child li:not(:last-child) a {
     top: calc(100% - 20px);
     border-radius: 20px 20px 0 0;
-    box-shadow: 0px -3px 5px #000;
+    box-shadow: 0 -3px 5px #000;
     transition: top 0.5s ease; }
   #custom-block-widget ul:last-child li:nth-child(1) a {
     left: 0%; }
@@ -324,7 +324,7 @@ div.entrywrap {
     box-shadow: none;
     transition: box-shadow 1s ease; }
     #shouts-widget fieldset > ul > li:hover {
-      box-shadow: 0px 0px 6px #000; }
+      box-shadow: 0 0 6px #000; }
   #shouts-widget fieldset:nth-child(1) {
     border-top: 2px solid #000;
     border-left: 2px solid #000;
@@ -466,7 +466,7 @@ div.entrywrap {
 #stats-widget + .widget {
   position: relative;
   width: 100%;
-  left: 0%; }
+  left: 0; }
 
 #blog_searchform #blog_keywords {
   border-width: 1px 1px 0 1px;
@@ -517,8 +517,8 @@ div.entrywrap {
 #tabs a::before, #tabs a::after,
 #tabs a span::before, #tabs a span::after,
 .codecontent > div > ol::before, .codecontent > div > ol::after {
-  margin: -8px 0px 0px;
-  background: none repeat scroll 0% 0% #000; }
+  margin: -8px 0 0;
+  background: none repeat scroll 0 0 #000; }
 
 .modactions li::before, .modactions li::after,
 .modactions a::before, .modactions a::after,
@@ -538,7 +538,7 @@ div.entrywrap {
   content: "";
   position: absolute;
   top: 50%;
-  left: 0px;
+  left: 0;
   transition: 0.5s ease; }
 
 /* Modactions */
@@ -643,7 +643,7 @@ div.entrywrap {
 
 /* Display/hide Links */
 #custom-block-widget ul:last-child li {
-  font-size: 0px; }
+  font-size: 0; }
   #custom-block-widget ul:last-child li:last-child a::before {
     left: calc(50% - 8px);
     width: 16px;
@@ -1059,7 +1059,7 @@ div.entrywrap {
 
 /* Tags */
 .post-tags {
-  font-size: 0px;
+  font-size: 0;
   position: relative; }
   .post-tags a {
     font-size: 14px;
@@ -1136,7 +1136,7 @@ div.entrywrap {
   left: 9px;
   width: 1px;
   height: 4px;
-  margin-top: 0px; }
+  margin-top: 0; }
 
 #permissions-panel-tab a span::before {
   left: 3px;
@@ -1233,7 +1233,7 @@ div.entrywrap {
   left: 45%;
   background: #f00;
   top: 10px;
-  border-radius: 0px 0px 6px 6px;
+  border-radius: 0 0 6px 6px;
   transition: top 1s ease; }
 #blog-errors p::before, #blog-errors p::after {
   content: "";
@@ -1245,14 +1245,14 @@ div.entrywrap {
   transition: top 1s ease; }
 #blog-errors p::before {
   left: calc(45% - 12px);
-  border-width: 1px 1px 0px 0px;
+  border-width: 1px 1px 0 0;
   border-top-right-radius: 6px;
-  box-shadow: 4px 0px 0 #f00; }
+  box-shadow: 4px 0 0 #f00; }
 #blog-errors p::after {
   right: calc(45% - 12px);
-  border-width: 1px 0px 0px 1px;
+  border-width: 1px 0 0 1px;
   border-top-left-radius: 6px;
-  box-shadow: -4px 0px 0 #f00; }
+  box-shadow: -4px 0 0 #f00; }
 #blog-errors:hover::after {
   top: 105px; }
 #blog-errors:hover p::before, #blog-errors:hover p::after {
@@ -1296,7 +1296,7 @@ div.entrywrap {
   z-index: 2;
   overflow: auto;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px #f00;
+  box-shadow: 0 0 4px #f00;
   animation: error 3s linear infinite;
   transition: top 1s ease; }
   #blog-errors:hover {
@@ -1376,7 +1376,7 @@ ul, ol {
   display: block;
   font: bold 14px Arial !important;
   text-transform: uppercase;
-  border-radius: 20px 20px 0px 0px;
+  border-radius: 20px 20px 0 0;
   padding-left: 40px;
   padding-top: 5px; }
 
@@ -1510,7 +1510,7 @@ div.codecontent li:before {
     top: 50%;
     width: 700%;
     transform: rotate(90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=90 / 90);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=${degrees} / 90);
     /* Ugh IE */ } }
 
 /*# sourceMappingURL=custom.css.map */

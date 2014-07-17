@@ -1,0 +1,30 @@
+/* Links */
+a:link, a:visited {
+	color: $aColour;
+	
+	transition: color 0.5s ease;
+}
+
+a:link:hover, a:visited:hover {
+	color: $aHoverColour;
+}
+
+/* Usernames */
+a[href*="mode=viewprofile"] {
+	display: inline-block;
+	
+	transform: skew(-10deg);
+			
+	transition: all 0.5s ease;
+}
+
+a[href*="mode=viewprofile"]:hover {
+	transform: none;
+}
+
+/* Email addresses */
+a[href^="mailto:"]::after {
+	content: $envelope; /* Add an envelope after the email address */
+	font-size: 20px;
+	padding: 3px;
+}

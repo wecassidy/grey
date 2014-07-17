@@ -32,5 +32,5 @@
 @mixin rotate($degrees) {
     transform: rotate(#{$degrees}deg);
 
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=#{$degrees} / 90); /* Ugh IE */
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=${degrees} / 90); /* Ugh IE */
 }

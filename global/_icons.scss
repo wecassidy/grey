@@ -1,10 +1,10 @@
 /* CSS Icons (heavily based on work by Nicholas Gallagher [read: essentially copied]) */
 .modactions li::before, .modactions li::after,
 .modactions li a::before, .modactions li a::after,
-#{$iconParent} a::before,
-#{$iconParent} a::after,
-#{$iconParent} a span::before,
-#{$iconParent} a span::after,
+#{$widgetLink} a::before,
+#{$widgetLink} a::after,
+#{$widgetLink} a span::before,
+#{$widgetLink} a span::after,
 .panel.bg2::before, .panel.bg2::after,
 #main .submit-buttons::before, #main .submit-buttons::after,
 #shouts-widget fieldset:nth-child(3)::before, #shouts-widget fieldset:nth-child(3)::after,
@@ -13,16 +13,16 @@
 #tabs a::before, #tabs a::after,
 #tabs a span::before, #tabs a span::after,
 #{$codeIcon}::before, #{$codeIcon}::after {
-	margin: -8px 0px 0px;
-	background: none repeat scroll 0% 0% #000;
+	margin: -8px 0 0;
+	background: none repeat scroll 0 0 #000;
 }
 
 .modactions li::before, .modactions li::after,
 .modactions a::before, .modactions a::after,
-#{$iconParent} a::before,
-#{$iconParent} a::after,
-#{$iconParent} a span::before,
-#{$iconParent} a span::after,
+#{$widgetLink} a::before,
+#{$widgetLink} a::after,
+#{$widgetLink} a span::before,
+#{$widgetLink} a span::after,
 .panel.bg2::before, .panel.bg2::after,
 #main .submit-buttons::before, #main .submit-buttons::after,
 #shouts-widget fieldset:nth-child(3)::before, #shouts-widget fieldset:nth-child(3)::after,
@@ -35,7 +35,7 @@
 	content: "";
 	position: absolute;
 	top: 50%;
-	left: 0px;
+	left: 0;
 	
 	transition: 0.5s ease;
 }
@@ -48,72 +48,72 @@
 	// Edit Post
 	&:nth-child(1):not(:last-child) a {
 		&::before {
-			left:-50px;
-			width:5px;
-			height:5px;
-			margin-top:2px;
-			background:#000;
+			left: -50px;
+			width: 5px;
+			height: 5px;
+			margin-top: 2px;
+			background: #000;
 			transform: skew(-10deg, -10deg);
 		}
 
 		&::after {
-			left:-50px;
-			width:13px;
-			height:6px;
-			border-left:1px solid #fff;
-			margin-top:-3px;
+			left: -50px;
+			width: 13px;
+			height: 6px;
+			border-left: 1px solid #fff;
+			margin-top: -3px;
 			/* css3 */
 			transform: rotate(-45deg);
 		}
 
 		&:hover::before,
 		&:hover::after {
-			background:#228B22;
+			background: #228B22;
 		}
 	}
 
 	// Delete Post
 	&:nth-child(2) {
 		&::before { // Lid of the trash can
-			left:-30px;
-			width:13px;
-			height:11px;
-			margin-top:-6px;
-			border-top:2px solid #000;
+			left: -30px;
+			width: 13px;
+			height: 11px;
+			margin-top: -6px;
+			border-top: 2px solid #000;
 			background:transparent;
 		}
 
 		&::after { // Ribs of the trash can
-			left:-26px;
-			width:1px;
-			height:7px;
-			border-right:3px double #000;
-			border-left:1px solid #000;
-			margin-top:-2px;
+			left: -26px;
+			width: 1px;
+			height: 7px;
+			border-right: 3px double #000;
+			border-left: 1px solid #000;
+			margin-top: -2px;
 			background: transparent;
 		}
 		
 		& a {
 			&::before { // Box of the trash can
-				left:-30px;
-				width:9px;
-				height:11px;
-				margin-top:-6px;
-				border:2px solid #000;
+				left: -30px;
+				width: 9px;
+				height: 11px;
+				margin-top: -6px;
+				border: 2px solid #000;
 				background:transparent;
 			}
 
 			&::after { // Lid of the trash can
-				left:-27px;
-				width:3px;
-				height:2px;
-				margin-top:-9px;
-				border:2px solid #000;
-				border-bottom:0;
+				left: -27px;
+				width: 3px;
+				height: 2px;
+				margin-top: -9px;
+				border: 2px solid #000;
+				border-bottom: 0;
 				background:transparent;
 				/* css3 */
-				-webkit-border-top-left-radius:2px;
-				-webkit-border-top-right-radius:2px;
+				-webkit-border-top-left-radius: 2px;
+				-webkit-border-top-right-radius: 2px;
 				border-radius: 2px 2px 0 0;
 			}
 		}
@@ -121,7 +121,7 @@
 		&:hover::after,
 		a:hover::before,
 		a:hover::after {
-			border-color:#F00;
+			border-color: #F00;
 			background:transparent;
 		}
 
@@ -155,90 +155,90 @@
 	// Report Post
 	&:last-child:not(:nth-child(2)) a {
 		&::before {
-			left:-10px;
-			width:7px;
-			height:7px;
-			margin-top:-5px;
-			border-width:7px 0 0 2px;
+			left: -10px;
+			width: 7px;
+			height: 7px;
+			margin-top: -5px;
+			border-width: 7px 0 0 2px;
 			border-style:solid;
-			border-color:#000;
+			border-color: #000;
 			background:transparent;
 			/* css3 */
 			transform: skewY(-8deg);
 		}
 
 		&::after {
-			left:-4px;
-			width:6px;
-			height:7px;
-			margin-top:-3px;
-			background:#000;
+			left: -4px;
+			width: 6px;
+			height: 7px;
+			margin-top: -3px;
+			background: #000;
 			/* css3 */
 			transform: skewY(-6deg);
 		}
 
 		&:hover::before {
-			border-color:#F44;
+			border-color: #F44;
 			background:transparent;
 		}
 
 		&:hover::after {
-			background-color:#F44;
+			background-color: #F44;
 		}
 	}
 }
 
 /* Display/hide Links */
-#{$iconParent} {
-	font-size: 0px;
+#{$widgetLink} {
+	font-size: 0;
 
 	// Hide link
 	&:last-child a {
 		&::before {
 			left:calc(50% - 8px);
-			width:16px;
-			height:16px;
+			width: 16px;
+			height: 16px;
 			/* css3 */
 			border-radius: 16px;
 		}
 
 		&::after {
-			border-width:5px 0 5px 6px;
+			border-width: 5px 0 5px 6px;
 			border-style:solid;
 			border-color:transparent #fff;
-			margin-top:-5px;
+			margin-top: -5px;
 			background:transparent;
 		}
 
 		& span::before {
-			z-index:10;
-			width:5px;
-			height:4px;
-			margin-top:-2px;
-			background:#fff;
+			z-index: 10;
+			width: 5px;
+			height: 4px;
+			margin-top: -2px;
+			background: #fff;
 		}
 
 		&::after {
 			left:calc(50% - 5px);
-			border-width:0 5px 6px;
-			border-color:#fff transparent;
-			margin-top:-6px;
+			border-width: 0 5px 6px;
+			border-color: #fff transparent;
+			margin-top: -6px;
 		}
 
 		& span::before {
 			left:calc(50% - 2px);
-			width:4px;
-			height:5px;
-			margin-top:0;
+			width: 4px;
+			height: 5px;
+			margin-top: 0;
 		}
 
 		&::after {
-			border-width:6px 5px 0;
-			margin-top:0;
+			border-width: 6px 5px 0;
+			margin-top: 0;
 		}
 
 		& span::before {
-			margin-top:-5px;
+			margin-top: -5px;
 		}
 	}
 
@@ -247,17 +247,17 @@
 		&::before {
 			content:"i";
 			left:calc(50% - 8px);
-			width:16px;
-			height:16px;
-			margin-top:-8px;
+			width: 16px;
+			height: 16px;
+			margin-top: -8px;
 			font-family: Times;
 			font-size:$fontSize;
 			font-weight:bold;
 			font-style:italic;
-			line-height:15px;
+			line-height: 15px;
 			text-align:center;
-			color:#fff;
-			background:#000;
+			color: #fff;
+			background: #000;
 			/* css3 */
 			border-radius: 16px;
 		}
@@ -354,10 +354,10 @@
 	&:nth-child(3) a {
 		&::before {
 			left: calc(50% - 10px);
-			width:16px;
-			height:10px;
+			width: 16px;
+			height: 10px;
 			border:  1px solid #000;
-			margin-top:-8px;
+			margin-top: -8px;
 			/* css3 */
 			box-sizing: border-box;
 			border-radius: 2px;
@@ -366,10 +366,10 @@
 
 		&::after {
 			left:calc(50% - 1px);
-			border:2px solid transparent;
-			border-top-color:#000;
-			border-left-color:#000;
-			margin-top:2px;
+			border: 2px solid transparent;
+			border-top-color: #000;
+			border-left-color: #000;
+			margin-top: 2px;
 			background:transparent;
 		}
 
@@ -403,24 +403,24 @@
 	&:nth-child(4) a {
 		&::before {
 			left:calc(50% - 8px);
-			width:9px;
-			height:15px;
-			margin-top:-8px;
-			background:#000;
+			width: 9px;
+			height: 15px;
+			margin-top: -8px;
+			background: #000;
 			/* css3 */
-			-webkit-border-top-left-radius:3px;
-			-webkit-border-top-right-radius:3px;
-			-moz-border-radius:3px 3px 0 0;
-			border-radius:5px 5px 0 0;
+			-webkit-border-top-left-radius: 3px;
+			-webkit-border-top-right-radius: 3px;
+			-moz-border-radius: 3px 3px 0 0;
+			border-radius: 5px 5px 0 0;
 			transform: rotate(-40deg);
 		}
 
 		&::after {
 			left:calc(50% - 7px);
-			width:3px;
-			height:3px;
-			margin-top:-4px;
-			background:#fff;
+			width: 3px;
+			height: 3px;
+			margin-top: -4px;
+			background: #fff;
 			border-radius: 5px;
 		}
 
@@ -433,18 +433,18 @@
 	&:nth-child(5) a {
 		& span::before { // Tip of the pencil
 			left:calc(50% - 4px);
-			border-width:2px 0 2px 2px;
+			border-width: 2px 0 2px 2px;
 			border-style:solid;
 			border-color:transparent #000;
-			margin-top:-1px;
+			margin-top: -1px;
 		}
 
 		&::before { // Border of the paper
 			left:calc(50% - 10px);
-			width:10px;
-			height:10px;
-			border:2px solid #000;
-			margin-top:-6px;
+			width: 10px;
+			height: 10px;
+			border: 2px solid #000;
+			margin-top: -6px;
 			background:transparent;
 			/* css3 */
 			border-radius: 3px;
@@ -452,10 +452,10 @@
 
 		&::after { // Body of the pencil
 			left:calc(50% - 4px);
-			width:10px;
-			height:3px;
-			border:1px solid #fff;
-			margin-top:-6px;
+			width: 10px;
+			height: 3px;
+			border: 1px solid #fff;
+			margin-top: -6px;
 			/* css3 */
 			transform: rotate(-45deg);
 		}
@@ -481,27 +481,27 @@
 	&:nth-child(6) a {
 		&::before {
 			left:calc(50% - 12px);
-			width:16px;
-			height:12px;
-			margin-top:-6px;
+			width: 16px;
+			height: 12px;
+			margin-top: -6px;
 			/* css3 */
-			-webkit-border-bottom-right-radius:1px;
-			-webkit-border-bottom-left-radius:1px;
-			-moz-border-radius:0 0 1px 1px;
-			border-radius:0 0 1px 1px;
+			-webkit-border-bottom-right-radius: 1px;
+			-webkit-border-bottom-left-radius: 1px;
+			-moz-border-radius: 0 0 1px 1px;
+			border-radius: 0 0 1px 1px;
 		}
 
 		&::after {
 			left:calc(50% - 10px);
-			width:6px;
-			height:2px;
-			margin-top:-8px;
-			background:#000;
+			width: 6px;
+			height: 2px;
+			margin-top: -8px;
+			background: #000;
 			/* css3 */
-			-webkit-border-top-right-radius:1px;
-			-webkit-border-top-left-radius:1px;
-			-moz-border-radius:1px 1px 0 0;
-			border-radius:1px 1px 0 0;
+			-webkit-border-top-right-radius: 1px;
+			-webkit-border-top-left-radius: 1px;
+			-moz-border-radius: 1px 1px 0 0;
+			border-radius: 1px 1px 0 0;
 		}
 
 		&:hover::before,
@@ -515,10 +515,10 @@
 		& span::before,
 		&::before {
 			left:calc(50% - 3px);
-			border-width:10px 0 10px 8px;
+			border-width: 10px 0 10px 8px;
 			border-style:solid;
 			border-color:transparent #000;
-			margin-top:-9px;
+			margin-top: -9px;
 			background:transparent;
 			/* css3 */
 			transform: rotate(22.5deg);
@@ -532,10 +532,10 @@
 
 		&::after {
 			left: calc(50% - 9px);
-			border-width:8px 10px 0;
+			border-width: 8px 10px 0;
 			border-style:solid;
-			border-color:#000 transparent;
-			margin-top:-3px;
+			border-color: #000 transparent;
+			margin-top: -3px;
 			background:transparent;
 		}
 
@@ -556,28 +556,28 @@
 	&:nth-child(8) a{
 		&::before { // The body of the person
 			left:calc(50% - 12px);
-			width:16px;
-			height:5px;
-			margin-top:1px;
+			width: 16px;
+			height: 5px;
+			margin-top: 1px;
 			/* css3 */
-			-webkit-border-top-right-radius:5px;
-			-webkit-border-top-left-radius:5px;
-			-moz-border-radius:5px 5px 0 0;
-			border-radius:5px 5px 0 0;
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-top-left-radius: 5px;
+			-moz-border-radius: 5px 5px 0 0;
+			border-radius: 5px 5px 0 0;
 		}
 
 		&::after { // The head of the person
 			left:calc(50% - 7px);
-			width:6px;
-			height:10px;
-			margin-top:-7px;
+			width: 6px;
+			height: 10px;
+			margin-top: -7px;
 			/* css3 */
-			-webkit-border-top-right-radius:5px;
-			-webkit-border-top-left-radius:5px;
-			-webkit-border-bottom-right-radius:5px 10px;
-			-webkit-border-bottom-left-radius:5px 10px;
-			-moz-border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
-			border-radius:5px 5px 5px 5px / 5px 5px 10px 10px;
+			-webkit-border-top-right-radius: 5px;
+			-webkit-border-top-left-radius: 5px;
+			-webkit-border-bottom-right-radius: 5px 10px;
+			-webkit-border-bottom-left-radius: 5px 10px;
+			-moz-border-radius: 5px 5px 5px 5px / 5px 5px 10px 10px;
+			border-radius: 5px 5px 5px 5px / 5px 5px 10px 10px;
 		}
 
 		&:hover {
@@ -595,8 +595,8 @@
 	&:nth-child(9) a {
 		&::before {
 			left:calc(50% - 10px);
-			border:8px solid #000;
-			margin-top:-7px;
+			border: 8px solid #000;
+			margin-top: -7px;
 			/* css3 */
 			border-radius: 16px;
 		}
@@ -604,25 +604,25 @@
 		&::after {
 			left:calc(50% - 4px);
 			top: 11px;
-			width:8px;
-			height:8px;
-			border-width:0 0 2px 2px;
+			width: 8px;
+			height: 8px;
+			border-width: 0 0 2px 2px;
 			border-style:solid;
-			border-color:#000;
-			margin-top:-8px;
-			background:#000;
+			border-color: #000;
+			margin-top: -8px;
+			background: #000;
 			/* css3 */
-			-webkit-border-top-right-radius:16px;
-			-moz-border-radius:0 16px 0 0;
-			border-radius:0 16px 0 0;
+			-webkit-border-top-right-radius: 16px;
+			-moz-border-radius: 0 16px 0 0;
+			border-radius: 0 16px 0 0;
 		}
 
 		&:hover::before {
-			border-color:#77f;
+			border-color: #77f;
 		}
 
 		&:hover::after {
-			background:#9d2ca3;
+			background: #9d2ca3;
 			border-color: #fff;
 			left: calc(50% - 3px);
 			top: 10px;
@@ -633,36 +633,36 @@
 	&:nth-child(10) a {
 		&::before {
 			left:calc(50% - 8px);
-			width:5px;
-			height:5px;
-			margin-top:0;
+			width: 5px;
+			height: 5px;
+			margin-top: 0;
 			/* css3 */
 			border-radius: 5px;
 		}
 
 		&::after {
 			left:calc(50% - 8px);
-			width:8px;
-			height:8px;
-			border-width:5px 5px 0 0;
+			width: 8px;
+			height: 8px;
+			border-width: 5px 5px 0 0;
 			border-style:double;
-			border-color:#000;
+			border-color: #000;
 			background:transparent;
 			/* css3 */
-			-webkit-border-top-right-radius:25px;
-			-moz-border-radius:0 25px 0 0;
-			border-radius:0 25px 0 0;
+			-webkit-border-top-right-radius: 25px;
+			-moz-border-radius: 0 25px 0 0;
+			border-radius: 0 25px 0 0;
 		}
 
 		&:hover {
 			&::before {
-				background:#c55500;
+				background: #c55500;
 			}
 
 
 			&::after {
-				border-color:#c55500;
-				width:11px;
+				border-color: #c55500;
+				width: 11px;
 				height: 11px;
 				top: 8px;
 			}
@@ -689,10 +689,10 @@
 	&:after {
 		left: calc(50% - 40px);
 		top: -9px;
-		width:10px;
-		height:2px;
-		margin-top:-2px;
-		background:#fff;
+		width: 10px;
+		height: 2px;
+		margin-top: -2px;
+		background: #fff;
 	}
 
 	&:hover {
@@ -714,22 +714,22 @@
 		&::before { /* Circle of the glass */
 			left: calc(50% - 50px);
 			top: 33px;
-			width:6px;
-			height:6px;
-			border:3px solid #000;
+			width: 6px;
+			height: 6px;
+			border: 3px solid #000;
 			background:transparent;
 			/* css3 */
-			-webkit-border-radius:12px;
-			-moz-border-radius:12px;
-			border-radius:12px;
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 12px;
+			border-radius: 12px;
 		}
 
 		&::after { /* Handle of the glass */
 			left: calc(50% - 39px);
 			top: 34px;
-			width:3px;
-			height:7px;
-			margin-top:0;
+			width: 3px;
+			height: 7px;
+			margin-top: 0;
 			/* css3 */
 			-webkit-transform:rotate(-45deg);
 			-moz-transform:rotate(-45deg);
@@ -747,14 +747,14 @@
 
 	&::before {
 		left:calc(25% - 50px);
-		width:14px;
-		height:14px;
-		margin-top:-18px;
-		background:#000;
-		-webkit-border-top-left-radius:12px;
-		-webkit-border-bottom-right-radius:12px;
-		-moz-border-radius:12px 0 12px 0;
-		border-radius:12px 0 12px 0;
+		width: 14px;
+		height: 14px;
+		margin-top: -18px;
+		background: #000;
+		-webkit-border-top-left-radius: 12px;
+		-webkit-border-bottom-right-radius: 12px;
+		-moz-border-radius: 12px 0 12px 0;
+		border-radius: 12px 0 12px 0;
 		-webkit-transform:rotate(45deg);
 		-moz-transform:rotate(45deg);
 		-ms-transform:rotate(45deg);
@@ -764,13 +764,13 @@
 
 	&::after {
 		left:calc(25% - 47px);
-		width:4px;
-		height:4px;
-		border:2px solid #fff;
-		margin-top:-15px;
-		-webkit-border-radius:6px;
-		-moz-border-radius:6px;
-		border-radius:6px;
+		width: 4px;
+		height: 4px;
+		border: 2px solid #fff;
+		margin-top: -15px;
+		-webkit-border-radius: 6px;
+		-moz-border-radius: 6px;
+		border-radius: 6px;
 	}
 }
 
@@ -780,24 +780,24 @@
 
 	&::before {
 		left: calc(75% - 45px);
-		width:16px;
-		height:16px;
-		margin-top:-18px;
+		width: 16px;
+		height: 16px;
+		margin-top: -18px;
 		/* css3 */
-		-webkit-border-radius:16px;
-		-moz-border-radius:16px;
-		border-radius:16px;
-		background:#000;
+		-webkit-border-radius: 16px;
+		-moz-border-radius: 16px;
+		border-radius: 16px;
+		background: #000;
 	}
 
 	&::after {
 		left:calc(75% - 40px);
-		width:3px;
-		height:8px;
-		border-width:0 2px 2px 0;
+		width: 3px;
+		height: 8px;
+		border-width: 0 2px 2px 0;
 		border-style:solid;
-		border-color:#fff;
-		margin-top:-16px;
+		border-color: #fff;
+		margin-top: -16px;
 		-webkit-transform:rotate(45deg);
 		-moz-transform:rotate(45deg);
 		-ms-transform:rotate(45deg);
@@ -808,7 +808,7 @@
 
 /* Tags */
 .post-tags {
-	font-size: 0px;
+	font-size: 0;
 	position: relative;
 
 	a {
@@ -821,25 +821,25 @@
 	}
 
 	a:first-child::before {
-		left:6px;
-		width:9px;
-		height:15px;
-		margin-top:-8px;
-		background:#000;
+		left: 6px;
+		width: 9px;
+		height: 15px;
+		margin-top: -8px;
+		background: #000;
 		/* css3 */
-		-webkit-border-top-left-radius:3px;
-		-webkit-border-top-right-radius:3px;
-		-moz-border-radius:3px 3px 0 0;
-		border-radius:5px 5px 0 0;
+		-webkit-border-top-left-radius: 3px;
+		-webkit-border-top-right-radius: 3px;
+		-moz-border-radius: 3px 3px 0 0;
+		border-radius: 5px 5px 0 0;
 		transform: rotate(-40deg);
 	}
 
 	a:first-child::after {
-		left:7px;
-		width:3px;
-		height:3px;
-		margin-top:-4px;
-		background:#fff;
+		left: 7px;
+		width: 3px;
+		height: 3px;
+		margin-top: -4px;
+		background: #fff;
 		border-radius: 5px;
 	}
 
@@ -857,67 +857,67 @@
 
 /* Options */
 #options-panel-tab a::after {
-	left:13px;
-	width:3px;
-	height:5px;
-	margin-top:-8px;
-	background:#fff;
+	left: 13px;
+	width: 3px;
+	height: 5px;
+	margin-top: -8px;
+	background: #fff;
 	/* css3 */
 	transform: rotate(45deg);
 }
 
 #options-panel-tab a span::before {
-	left:6px;
-	width:4px;
-	height:15px;
-	margin-top:-7px;
-	background:#000;
+	left: 6px;
+	width: 4px;
+	height: 15px;
+	margin-top: -7px;
+	background: #000;
 	/* css3 */
 	transform: rotate(45deg);
 }
 
 #options-panel-tab a span::after {
-	left:8px;
-	width:9px;
-	height:9px;
-	background:#000;
+	left: 8px;
+	width: 9px;
+	height: 9px;
+	background: #000;
 	border-radius: 8px;
 }
 
 /* Permissions */
 #permissions-panel-tab a::before,
 #permissions-panel-tab a::after {
-	z-index:10;
-	left:8px;
-	width:3px;
-	height:3px;
-	margin-top:-2px;
-	background:#fff;
+	z-index: 10;
+	left: 8px;
+	width: 3px;
+	height: 3px;
+	margin-top: -2px;
+	background: #fff;
 	/* css3 */
 	border-radius: 3px;
 }
 
 #permissions-panel-tab a::before {
-	left:9px;
-	width:1px;
-	height:4px;
-	margin-top:0px;
+	left: 9px;
+	width: 1px;
+	height: 4px;
+	margin-top: 0;
 }
 
 #permissions-panel-tab a span::before {
-	left:3px;
-	width:13px;
-	height:10px;
-	margin-top:-4px;
+	left: 3px;
+	width: 13px;
+	height: 10px;
+	margin-top: -4px;
 }
 
 #permissions-panel-tab a span::after {
-	left:5px;
-	width:5px;
-	height:5px;
-	border:2px solid #000;
-	border-bottom:0;
-	margin-top:-11px;
+	left: 5px;
+	width: 5px;
+	height: 5px;
+	border: 2px solid #000;
+	border-bottom: 0;
+	margin-top: -11px;
 	background:transparent;
 	/* css3 */
 	border-radius: 5px 5px 0 0;
@@ -925,77 +925,77 @@
 
 /* Subscription */
 #subscriptions-panel-tab a span::before {
-	z-index:10;
-	left:6px;
-	width:12px;
-	height:12px;
-	border-width:0 1px 1px 0;
+	z-index: 10;
+	left: 6px;
+	width: 12px;
+	height: 12px;
+	border-width: 0 1px 1px 0;
 	border-style:solid;
-	border-color:#fff;
-	margin-top:-13px;
+	border-color: #fff;
+	margin-top: -13px;
 	background:transparent;
 	/* css3 */
 	transform: rotate(39deg) skew(-12deg);
 }
 
 #subscriptions-panel-tab a::before {
-	left:3px;
-	width:6px;
-	border-width:6px;
+	left: 3px;
+	width: 6px;
+	border-width: 6px;
 	border-style:solid;
-	border-color:#000 #000 transparent;
-	margin-top:-7px;
+	border-color: #000 #000 transparent;
+	margin-top: -7px;
 	background:transparent;
 }
 
 #subscriptions-panel-tab a::after {
-	left:4px;
-	border-width:0 8px 9px;
+	left: 4px;
+	border-width: 0 8px 9px;
 	border-style:solid;
-	border-color:#000 transparent;
-	margin-top:-3px;
+	border-color: #000 transparent;
+	margin-top: -3px;
 	background:transparent;
 }
 
 /* Upload Attachment */
 #attach-panel-tab a::before {
-	left:5px;
-	width:8px;
-	height:12px;
-	border:2px solid #000;
+	left: 5px;
+	width: 8px;
+	height: 12px;
+	border: 2px solid #000;
 	background:transparent;
 }
 
 #attach-panel-tab a::after {
-	left:4px;
-	border-width:3px;
+	left: 4px;
+	border-width: 3px;
 	border-style:solid;
-	border-color:#fff #000 #000 #fff;
-	margin-top:-9px;
+	border-color: #fff #000 #000 #fff;
+	margin-top: -9px;
 	background:transparent;
 }
 
 /* Tags */
 #tags-panel-tab a::before {
-	left:6px;
-	width:9px;
-	height:15px;
-	margin-top:-8px;
-	background:#000;
+	left: 6px;
+	width: 9px;
+	height: 15px;
+	margin-top: -8px;
+	background: #000;
 	/* css3 */
-	-webkit-border-top-left-radius:3px;
-	-webkit-border-top-right-radius:3px;
-	-moz-border-radius:3px 3px 0 0;
-	border-radius:5px 5px 0 0;
+	-webkit-border-top-left-radius: 3px;
+	-webkit-border-top-right-radius: 3px;
+	-moz-border-radius: 3px 3px 0 0;
+	border-radius: 5px 5px 0 0;
 	transform: rotate(-40deg);
 }
 
 #tags-panel-tab a::after {
-	left:7px;
-	width:3px;
-	height:3px;
-	margin-top:-4px;
-	background:#fff;
+	left: 7px;
+	width: 3px;
+	height: 3px;
+	margin-top: -4px;
+	background: #fff;
 	border-radius: 5px;
 }
 
@@ -1010,7 +1010,7 @@
 		background: #f00;
 		top: 10px;
 
-		border-radius: 0px 0px 6px 6px;
+		border-radius: 0 0 6px 6px;
 		transition: top 1s ease;
 	}
 
@@ -1028,18 +1028,18 @@
 
 		&::before {
 			left: calc(45% - 12px);
-			border-width: 1px 1px 0px 0px;
+			border-width: 1px 1px 0 0;
 
 			border-top-right-radius: 6px;
-			box-shadow: 4px 0px 0 #f00;
+			box-shadow: 4px 0 0 #f00;
 		}
 
 		&::after {
 			right: calc(45% - 12px);
-			border-width: 1px 0px 0px 1px;
+			border-width: 1px 0 0 1px;
 
 			border-top-left-radius: 6px;
-			box-shadow: -4px 0px 0 #f00;
+			box-shadow: -4px 0 0 #f00;
 		}
 	}
 
