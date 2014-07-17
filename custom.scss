@@ -11,16 +11,16 @@ This code is released under the GNU GPLv3 license. The full legal text of the li
 
 // TODO Update compatibility table
 // TODO Style the postform more
-// TODO Style blog search
+// TODO Add more colours
 
 // Variables stylesheet
-@import "variables";
+@import "./global/variables";
 
 // Mixins stylesheet
-@import "mixins";
+@import "./global/mixins";
 
 // Animations
-@import "animations";
+@import "./global/animations";
 
 /* Universal Reset */
 * {
@@ -102,77 +102,16 @@ body {
 }
 
 // Entries
-@import "entries";
+@import "./main/entries";
 
-// Total-posts
-@import "total-posts";
-
-/* Post form */
-.fields1:first-child {
-	margin: 0 !important;
-	border-bottom: none;
-}
-
-#main {
-	#message.inputbox {
-		position: relative;
-		left: -11px;
-		top: 11px;
-		width: calc(100% + 9px);
-		
-		border: 1px solid black;
-		border-bottom: none;
-	}
-
-	/* Submit Buttons */
-	.submit-buttons {
-		border: none;    
-		margin: 0;
-		padding: 0;
-		
-		
-
-		input {
-			background: transparent;
-			position: relative;
-			border-width: 1px;
-			border-color: #000;
-			width: 50%;
-			height: 20px;
-			top: -2px;
-			float: left;
-			margin: 0 !important;
-			
-				
-			
-			transition: 1s ease;
-		
-
-			&:hover {
-				border-radius: 0 !important;
-			}
-
-			&:first-child {    
-				border-bottom-left-radius: 100px;
-			}
-
-			&:last-child {
-				border-left: none;
-				top: -18px;
-				
-				
-				
-				border-bottom-right-radius: 100px;
-			}
-		}
-	}
-}
+// Postform
+@import "./main/postform";
 
 // Side
-@import "side";
+@import "./side/side";
 
 // Icons
-@import "icons";
+@import "./global/icons";
 
 /* Blog errors */
 $beMoveAmount: 95px;
@@ -233,7 +172,7 @@ a[href^="mailto:"]::after {
 }
 
 // BBCode
-@import "bbcode";
+@import "./global/bbcode";
 
 /* Image size limiter */
 .entrywrap img, #side img {
@@ -258,33 +197,8 @@ a[href^="mailto:"]::after {
 	background: $sideSelectColour;
 }
 
-/* Mobile style */
-@-webkit-viewport{width: device-width;}
-   @-moz-viewport{width: device-width;}
-	@-ms-viewport{width: device-width;}
-	 @-o-viewport{width: device-width;}
-		@viewport{width: device-width;}
-
-/* Mobile Devices */
-@media only screen and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi), only screen and (min-resolution: 1.5dppx), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi) {
-
-	#{$iconParent} {
-		display: none;
-	}
-
-	.widget[id], #user-menu-widget {
-		margin: 3px 3px 3px 3px;
-		position: relative;
-		max-height: 3em;
-
-		transition: max-height 1s ease;
-	}
-
-	.widget[id]:hover, #user-menu-widget:hover {
-		max-height: 50em;
-	}
-
-}
+// Mobile style
+@import "./global/mobile";
 
 /* Sillyness */
 @media all {
@@ -314,7 +228,7 @@ a[href^="mailto:"]::after {
 
 		body::before {
 			content: "";
-			background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
+			background-image: url(#{$catURL});
 			background-size: 100% AUTO;
 			font-size: 50px;
 			color: white;
@@ -325,14 +239,14 @@ a[href^="mailto:"]::after {
 		}
 
 		body::after {
+			@include catmsg;
+
+			content: "HALP! U R SQUISHZIN ME!";
 			left: -300%;
 			top: 50%;
 			width: 700%;
-
-			@include catmsg;
-			transform: rotate(90deg);
-
-			filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); /* Ugh IE */
+            
+			@include rotate(90);
 		}
 	}
 }

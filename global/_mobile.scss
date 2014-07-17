@@ -1,0 +1,27 @@
+/* Mobile style */
+@-webkit-viewport{width: device-width;}
+   @-moz-viewport{width: device-width;}
+	@-ms-viewport{width: device-width;}
+	 @-o-viewport{width: device-width;}
+		@viewport{width: device-width;}
+
+/* Mobile Devices */
+@media only screen and (max-width: 800px), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi), only screen and (min-resolution: 1.5dppx), only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (min-resolution: 132dpi) {
+
+	#{$iconParent} {
+		display: none;
+	}
+
+	.widget[id], #user-menu-widget {
+		margin: 3px 3px 3px 3px;
+		position: relative;
+		max-height: 3em;
+
+		transition: max-height 1s ease;
+	}
+
+	.widget[id]:hover, #user-menu-widget:hover {
+		max-height: 50em;
+	}
+
+}

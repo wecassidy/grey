@@ -243,6 +243,7 @@ div.entrywrap {
   width: 60%;
   overflow: auto; }
 
+/* Widget Bar */
 /* When the user clicks a link */
 #user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
 #custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {
@@ -1495,9 +1496,6 @@ div.codecontent li:before {
     left: 0; }
 
   body::after {
-    left: -300%;
-    top: 50%;
-    width: 700%;
     content: "U HAS VRY SMALL SCREEN!";
     background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
     background-size: 100% AUTO;
@@ -1507,8 +1505,12 @@ div.codecontent li:before {
     width: 100%;
     height: 100%;
     left: 0;
+    content: "HALP! U R SQUISHZIN ME!";
+    left: -300%;
+    top: 50%;
+    width: 700%;
     transform: rotate(90deg);
-    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=90 / 90);
     /* Ugh IE */ } }
 
 /*# sourceMappingURL=custom.css.map */

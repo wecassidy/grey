@@ -1,0 +1,71 @@
+/* Widget Bar */
+
+/* When the user clicks a link */
+#user-menu-widget:target, #archive-widget:target, #shouts-widget:target, #contrib-widget:target, #categories-widget:target, #tags-widget:target,
+#custom-block-widget:target, #wrapper:target #about-owner-widget, #content:target #stats-widget, #side:target #feed-widget {top: 0%;}
+
+#user-menu-widget:target ~ #{$iconParent}:last-child a,
+#archive-widget:target ~ #{$iconParent}:last-child a,
+#shouts-widget:target ~ #{$iconParent}:last-child a,
+#contrib-widget:target ~ #{$iconParent}:last-child a,
+#categories-widget:target ~ #{$iconParent}:last-child a,
+#tags-widget:target ~ #{$iconParent}:last-child a,
+#custom-block-widget:target ul:last-child li:last-child a,
+#wrapper:target #{$iconParent}:last-child a,
+#content:target #{$iconParent}:last-child a,
+#side:target #{$iconParent}:last-child a {display: block;}
+
+/* Display/hide links */
+#{$iconParent} {
+	list-style-type: none;
+
+	a {
+		position: fixed;
+		z-index: 2;
+		width: 10%;
+		height: 20px;
+		background-color: #fff;
+	}
+
+	&:last-child a {
+		left: 45%;
+		top: 0%;
+		display: none; /* Hide the hide link */
+
+		border-radius: 0 0 20px 20px;
+
+		box-shadow: 0px 3px 5px #000;
+	}
+
+	// Display links
+	&:not(:last-child) a {
+		top: calc(100% - 20px);
+		
+		border-radius: 20px 20px 0 0;
+
+		box-shadow: 0px -3px 5px #000;
+
+		transition: top 0.5s ease;
+	}
+
+	// Display link positioning
+	@for $i from 1 through 10 {
+		&:nth-child(#{$i}) a {
+			left: 10 * $i - 10%;
+		}
+	}
+}
+
+/* Move a link down when clicked */
+#user-menu-widget:target ~ #{$iconParent}:nth-child(1) a,
+#archive-widget:target ~ #{$iconParent}:nth-child(2) a,
+#shouts-widget:target ~ #{$iconParent}:nth-child(3) a,
+#tags-widget:target ~ #{$iconParent}:nth-child(4) a,
+#contrib-widget:target ~ #{$iconParent}:nth-child(5) a,
+#categories-widget:target ~ #{$iconParent}:nth-child(6) a,
+#custom-block-widget:target ul:last-child li:nth-child(7) a,
+#wrapper:target #{$iconParent}:nth-child(8) a,
+#content:target #{$iconParent}:nth-child(9) a,
+#side:target #{$iconParent}:nth-child(10) a {
+	top: calc(100% - 10px);
+}
