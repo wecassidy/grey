@@ -1,22 +1,3 @@
-// Vender prefix mixin
-@mixin vendorize($property, $value, $important: no) {
-	@if $important != no {
-		-webkit-#{$property}: $value !important;
-		   -moz-#{$property}: $value !important;
-			-ms-#{$property}: $value !important;
-			 -o-#{$property}: $value !important;
-				#{$property}: $value !important;
-	}
-
-	@else {
-		-webkit-#{$property}: $value;
-		   -moz-#{$property}: $value;
-			-ms-#{$property}: $value;
-			 -o-#{$property}: $value;
-				#{$property}: $value;
-	}
-}
-
 @mixin catmsg {
 	content: "U HAS VRY SMALL SCREEN!";
 	background-image: url(#{$catURL});
@@ -31,6 +12,4 @@
 
 @mixin rotate($degrees) {
     transform: rotate(#{$degrees}deg);
-
-	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=${degrees} / 90); /* Ugh IE */
 }
