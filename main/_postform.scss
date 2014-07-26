@@ -29,7 +29,7 @@
 			border-width: 1px;
 			border-color: #000;
 			width: 50%;
-			height: 20px;
+			height: $buttonHeight;
 			top: -2px;
 			float: left;
 			margin: 0 !important;
@@ -44,16 +44,13 @@
 			}
 
 			&:first-child {    
-				border-bottom-left-radius: 100px;
+				border-bottom-left-radius: $buttonHeight;
 			}
 
 			&:last-child {
 				border-left: none;
 				top: -18px;
-				
-				
-				
-				border-bottom-right-radius: 100px;
+				border-bottom-right-radius: $buttonHeight;
 			}
 		}
 	}

@@ -83,7 +83,7 @@ body {
 		color: $aColour;
 
 		&:hover {
-			color: $aHoverColour;
+			text-decoration: underline;
 		}
 	}
 }
@@ -218,7 +218,7 @@ $beMoveAmount: 95px;
 			top: 50%;
 			width: 700%;
             
-			@include rotate(90);
+			transform: rotate(90deg);
 		}
 	}
 }
