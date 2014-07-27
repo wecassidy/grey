@@ -849,9 +849,9 @@ div.entrywrap {
 .modactions li:last-child:not(:nth-child(2)) a:hover::after {
     background-color: #F44;
 }
-/* Display/hide Links */
+/* Widget Links */
 
-#custom-block-widget ul:last-child li {
+#custom-block-widget ul:last-child li span[style*="font-size"] {
     font-size: 0;
 }
 #custom-block-widget ul:last-child li:last-child a::before {

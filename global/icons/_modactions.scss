@@ -1,0 +1,147 @@
+/* Modactions */
+.modactions li {
+	position: relative;
+	font-size: 0;
+
+	// Edit Post
+	&:nth-child(1):not(:last-child) a {
+		&::before {
+			left: -50px;
+			width: 5px;
+			height: 5px;
+			margin-top: 2px;
+			background: #000;
+			transform: skew(-10deg, -10deg);
+		}
+
+		&::after {
+			left: -50px;
+			width: 13px;
+			height: 6px;
+			border-left: 1px solid #fff;
+			margin-top: -3px;
+			/* css3 */
+			transform: rotate(-45deg);
+		}
+
+		&:hover::before,
+		&:hover::after {
+			background: #228B22;
+		}
+	}
+
+	// Delete Post
+	&:nth-child(2) {
+		&::before { // Lid of the trash can
+			left: -30px;
+			width: 13px;
+			height: 11px;
+			margin-top: -6px;
+			border-top: 2px solid #000;
+			background:transparent;
+		}
+
+		&::after { // Ribs of the trash can
+			left: -26px;
+			width: 1px;
+			height: 7px;
+			border-right: 3px double #000;
+			border-left: 1px solid #000;
+			margin-top: -2px;
+			background: transparent;
+		}
+		
+		& a {
+			&::before { // Box of the trash can
+				left: -30px;
+				width: 9px;
+				height: 11px;
+				margin-top: -6px;
+				border: 2px solid #000;
+				background:transparent;
+			}
+
+			&::after { // Lid of the trash can
+				left: -27px;
+				width: 3px;
+				height: 2px;
+				margin-top: -9px;
+				border: 2px solid #000;
+				border-bottom: 0;
+				background:transparent;
+				/* css3 */
+				-webkit-border-top-left-radius: 2px;
+				-webkit-border-top-right-radius: 2px;
+				border-radius: 2px 2px 0 0;
+			}
+		}
+
+		&:hover::after,
+		a:hover::before,
+		a:hover::after {
+			border-color: #F00;
+			background:transparent;
+		}
+
+		a:hover::after {
+			top: -7px;
+			left: -25px;
+			transform: rotate(20deg);
+		}
+
+		&:hover {
+			&::before {
+				border-color: #f00;
+				top: -7px;
+				left: -31px;
+				transform: rotate(20deg);
+			}
+
+			&:hover a::before,
+			&:hover a::after {
+				border-color: #f00;
+			}
+
+			&:hover a::after {
+				top: -7px;
+				left: -25px;
+				transform: rotate(20deg);
+			}
+		}
+	}
+
+	// Report Post
+	&:last-child:not(:nth-child(2)) a {
+		&::before {
+			left: -10px;
+			width: 7px;
+			height: 7px;
+			margin-top: -5px;
+			border-width: 7px 0 0 2px;
+			border-style:solid;
+			border-color: #000;
+			background:transparent;
+			/* css3 */
+			transform: skewY(-8deg);
+		}
+
+		&::after {
+			left: -4px;
+			width: 6px;
+			height: 7px;
+			margin-top: -3px;
+			background: #000;
+			/* css3 */
+			transform: skewY(-6deg);
+		}
+
+		&:hover::before {
+			border-color: #F44;
+			background:transparent;
+		}
+
+		&:hover::after {
+			background-color: #F44;
+		}
+	}
+}
