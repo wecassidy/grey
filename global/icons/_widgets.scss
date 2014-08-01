@@ -4,6 +4,10 @@
 		font-size: 0;
 	}
 
+	span[style*="color"] {
+		@include link("y");
+	}
+
 	// Hide link
 	&:last-child a {
 		&::before {
@@ -173,7 +177,7 @@
 			/* css3 */
 			box-sizing: border-box;
 			border-radius: 2px;
-			
+
 		}
 
 		&::after {

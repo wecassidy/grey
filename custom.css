@@ -116,7 +116,7 @@ body {
     overflow-x: auto;
 }
 #navigation_box a {
-    color: #000055;
+    color: #005;
 }
 #navigation_box a:hover {
     text-decoration: underline;
@@ -853,6 +853,12 @@ div.entrywrap {
 
 #custom-block-widget ul:last-child li span[style*="font-size"] {
     font-size: 0;
+}
+#custom-block-widget ul:last-child li span[style*="color"] {
+    color: #005 !important;
+}
+#custom-block-widget ul:last-child li span[style*="color"]:hover {
+    text-decoration: underline;
 }
 #custom-block-widget ul:last-child li:last-child a::before {
     left: calc(50% - 8px);
@@ -1642,7 +1648,7 @@ div.entrywrap {
 
 a:link,
 a:visited {
-    color: #000055;
+    color: #005;
 }
 a:link:hover,
 a:visited:hover {
@@ -1662,6 +1668,7 @@ a[href*="mode=viewprofile"]:hover {
     -webkit-transform: none;
         -ms-transform: none;
             transform: none;
+    text-decoration: none;
 }
 /* Email addresses */
 

@@ -1,23 +1,18 @@
 /* Links */
 a:link, a:visited {
-	color: $aColour;
-}
-
-a:link:hover, a:visited:hover {
-	text-decoration: underline;
+	@include link;
 }
 
 /* Usernames */
 a[href*="mode=viewprofile"] {
 	display: inline-block;
-	
 	transform: skew(-10deg);
-			
 	transition: all 0.5s ease;
-}
 
-a[href*="mode=viewprofile"]:hover {
-	transform: none;
+	&:hover {
+		transform: none;
+		text-decoration: none;
+	}
 }
 
 /* Email addresses */
