@@ -11,7 +11,7 @@
 	// Hide link
 	&:last-child a {
 		&::before {
-			left:calc(50% - 8px);
+			left: 10px;
 			width: 16px;
 			height: 16px;
 			/* css3 */
@@ -35,14 +35,14 @@
 		}
 
 		&::after {
-			left:calc(50% - 5px);
+			left: 13px;
 			border-width: 0 5px 6px;
 			border-color: #fff transparent;
 			margin-top: -6px;
 		}
 
 		& span::before {
-			left:calc(50% - 2px);
+			left: 16px;
 			width: 4px;
 			height: 5px;
 			margin-top: 0;
@@ -61,8 +61,8 @@
 	// Description Link
 	&:nth-child(1) a {
 		&::before {
-			content:"i";
-			left:calc(50% - 8px);
+			content: "i";
+			left: 10px;
 			width: 16px;
 			height: 16px;
 			margin-top: -8px;
@@ -86,7 +86,7 @@
 	// Archives Link
 	&:nth-child(2) a {
 		&::before { // Background
-			left: calc(50% - 13px);
+			left: 10px;
 			width: 13px;
 			height: 13px;
 
@@ -99,7 +99,7 @@
 		span {
 			&::before { // Large hand
 				position: absolute;
-				left: calc(50% - 5px);
+				left: 18px;
 				top: 13px;
 
 				width: 2px;
@@ -113,7 +113,7 @@
 
 			&::after { // Small hand
 				display: block;
-				left: calc(50% - 5px);
+				left: 18px;
 				top: 14px;
 
 				width: 2px;
@@ -167,11 +167,11 @@
 	// Shouts Link
 	&:nth-child(3) a {
 		&::before {
-			left: calc(50% - 10px);
+			left: 10px;
 			width: 16px;
 			height: 10px;
 			border: 1px solid #000;
-			margin-top: -8px;
+			margin-top: -6px;
 			/* css3 */
 			box-sizing: border-box;
 			border-radius: 2px;
@@ -179,19 +179,19 @@
 		}
 
 		&::after {
-			left:calc(50% - 1px);
+			left: 12px;
 			border: 2px solid transparent;
 			border-top-color: #000;
 			border-left-color: #000;
-			margin-top: 2px;
+			margin-top: 3px;
 			background:transparent;
 		}
 
 		span::before {
 			width: 1px;
 			height: 6px;
-			left: calc(50% - 7px);
-			margin-top: -6px;
+			left: 13px;
+			margin-top: -5px;
 
 			animation: blink 1.5s ease 0s infinite normal;
 		}
@@ -216,7 +216,7 @@
 	// Tags Link
 	&:nth-child(4) a {
 		&::before {
-			left:calc(50% - 8px);
+			left: 10px;
 			width: 9px;
 			height: 15px;
 			margin-top: -8px;
@@ -230,7 +230,7 @@
 		}
 
 		&::after {
-			left:calc(50% - 7px);
+			left: 11px;
 			width: 3px;
 			height: 3px;
 			margin-top: -4px;
@@ -246,7 +246,7 @@
 	// Contributors Link
 	&:nth-child(5) a {
 		& span::before { // Tip of the pencil
-			left:calc(50% - 4px);
+			left: 16px;
 			border-width: 2px 0 2px 2px;
 			border-style:solid;
 			border-color:transparent #000;
@@ -254,7 +254,7 @@
 		}
 
 		&::before { // Border of the paper
-			left:calc(50% - 10px);
+			left: 10px;
 			width: 10px;
 			height: 10px;
 			border: 2px solid #000;
@@ -265,7 +265,7 @@
 		}
 
 		&::after { // Body of the pencil
-			left:calc(50% - 4px);
+			left: 16px;
 			width: 10px;
 			height: 3px;
 			border: 1px solid #fff;
@@ -294,7 +294,7 @@
 	// Categories Link
 	&:nth-child(6) a {
 		&::before {
-			left:calc(50% - 12px);
+			left: 10px;
 			width: 16px;
 			height: 12px;
 			margin-top: -6px;
@@ -306,7 +306,7 @@
 		}
 
 		&::after {
-			left:calc(50% - 10px);
+			left: 12px;
 			width: 6px;
 			height: 2px;
 			margin-top: -8px;
@@ -328,7 +328,7 @@
 	&:nth-child(7) a {
 		& span::before,
 		&::before {
-			left:calc(50% - 3px);
+			left: 15px;
 			border-width: 10px 0 10px 8px;
 			border-style:solid;
 			border-color:transparent #000;
@@ -339,13 +339,13 @@
 		}
 
 		&::before {
-			left:calc(50% - 3px);
+			left: 15px;
 			/* css3 */
 			transform: rotate(157.5deg);
 		}
 
 		&::after {
-			left: calc(50% - 9px);
+			left: 9px;
 			border-width: 8px 10px 0;
 			border-style:solid;
 			border-color: #000 transparent;
@@ -369,7 +369,7 @@
 	// About Owner Link
 	&:nth-child(8) a{
 		&::before { // The body of the person
-			left:calc(50% - 12px);
+			left: 10px;
 			width: 16px;
 			height: 5px;
 			margin-top: 1px;
@@ -381,7 +381,7 @@
 		}
 
 		&::after { // The head of the person
-			left:calc(50% - 7px);
+			left: 15px;
 			width: 6px;
 			height: 10px;
 			margin-top: -7px;
@@ -408,7 +408,7 @@
 	// Blog Stats Link
 	&:nth-child(9) a {
 		&::before {
-			left:calc(50% - 10px);
+			left: 10px;
 			border: 8px solid #000;
 			margin-top: -7px;
 			/* css3 */
@@ -416,7 +416,7 @@
 		}
 
 		&::after {
-			left:calc(50% - 4px);
+			left: 16px;
 			top: 11px;
 			width: 8px;
 			height: 8px;
@@ -438,7 +438,7 @@
 		&:hover::after {
 			background: #9d2ca3;
 			border-color: #fff;
-			left: calc(50% - 3px);
+			left: 17px;
 			top: 10px;
 		}
 	}
@@ -446,18 +446,19 @@
 	// RSS Link
 	&:nth-child(10) a {
 		&::before {
-			left:calc(50% - 8px);
+			left: 10px;
 			width: 5px;
 			height: 5px;
-			margin-top: 0;
+			margin-top: 2px;
 			/* css3 */
 			border-radius: 5px;
 		}
 
 		&::after {
-			left:calc(50% - 8px);
+			left: 10px;
 			width: 8px;
 			height: 8px;
+			margin-top: -6px;
 			border-width: 5px 5px 0 0;
 			border-style:double;
 			border-color: #000;
