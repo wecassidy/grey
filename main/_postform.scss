@@ -1,27 +1,31 @@
 /* Post form */
-.fields1:first-child {
-	margin: 0 !important;
-	border-bottom: none;
+.fields1 {
+	border: 1px solid #000;
+
+	&:first-child {
+		margin: 0 !important;
+		border-bottom: none;
+	}
 }
 
 #main {
 	#message.inputbox {
 		position: relative;
-		left: -11px;
+		left: -9px;
 		top: 11px;
 		width: calc(100% + 9px);
-		
+
 		border: 1px solid black;
 		border-bottom: none;
 	}
 
 	/* Submit Buttons */
 	.submit-buttons {
-		border: none;    
+		border: none;
 		margin: 0;
 		padding: 0;
-		
-		
+
+
 
 		input {
 			background: transparent;
@@ -33,17 +37,15 @@
 			top: -2px;
 			float: left;
 			margin: 0 !important;
-			
-				
-			
+
 			transition: 1s ease;
-		
+
 
 			&:hover {
 				border-radius: 0 !important;
 			}
 
-			&:first-child {    
+			&:first-child {
 				border-bottom-left-radius: $buttonHeight;
 			}
 
