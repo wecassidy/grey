@@ -22,7 +22,7 @@ This code is licensed under GNU GPLv3 or later. The full text of the license is 
 ## Beta
 ```css
 /*
-Grey
+Grey version 1.1 (beta)
 In lieu of a better name.
 By AoPS user Tungsten
 
