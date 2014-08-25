@@ -1,4 +1,4 @@
-Grey version 1.1 (beta)
+Grey version 1.2 (beta)
 ====
 
 A repo for the Grey style for AoPS blogs.
