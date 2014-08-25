@@ -25,3 +25,6 @@ Temporary Items
 .sass-cache
 .sass-cache/
 .sass-cache/*
+
+# Map files
+*.map
