@@ -1,5 +1,5 @@
 /*
-Grey version 1.1 (beta)
+Grey version 1.2.1 (beta)
 In lieu of a better name.
 By AoPS user Tungsten
 
@@ -80,11 +80,7 @@ body {
 	overflow-x: auto;
 
 	a {
-		color: $aColour;
-
-		&:hover {
-			text-decoration: underline;
-		}
+		@include link;
 	}
 }
 
@@ -128,8 +124,8 @@ $beMoveAmount: 95px;
 	z-index: 2;
 
 	overflow: auto;
-	
-	
+
+
 	border-radius: 4px;
 	box-shadow: 0 0 4px #f00;
 	animation: error 3s linear infinite;
@@ -217,7 +213,7 @@ $beMoveAmount: 95px;
 			left: -300%;
 			top: 50%;
 			width: 700%;
-            
+
 			transform: rotate(90deg);
 		}
 	}
