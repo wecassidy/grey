@@ -9,3 +9,17 @@
 	height: 100%;
 	left: 0;
 }
+
+@mixin link($important: "n") {
+	@if $important != "n" {
+		color: #005 !important;
+	}
+
+	@else {
+		color: #005;
+	}
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
