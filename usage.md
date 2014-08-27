@@ -22,7 +22,7 @@ This code is licensed under GNU GPLv3 or later. The full text of the license is 
 ## Beta
 ```css
 /*
-Grey version 1.2 (beta)
+Grey version 1.2.1 (beta)
 In lieu of a better name.
 By AoPS user Tungsten
 
@@ -31,6 +31,7 @@ Dawn. Thanks to NeoMathematicalKid, PythonNut, knittingfrenzy18, asf, and the fo
 
 This code iss licensed under GNU GPLv3 or later. The full text of the license is available at https://www.gnu.org/copyleft/gpl.html.
 */
+
 @import "https://rawgit.com/Tungsten314/grey/beta/custom.css";
 ```
 
