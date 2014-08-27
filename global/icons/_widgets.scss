@@ -56,6 +56,15 @@
 		& span::before {
 			margin-top: -5px;
 		}
+
+		@media only screen and (max-width: 850px) {
+			&::before, &::after,
+			span::before {
+				width: 0;
+				height: 0;
+				border: none;
+			}
+		}
 	}
 
 	// Description Link
@@ -80,6 +89,14 @@
 
 		&:hover::before {
 			background: #00f;
+		}
+
+		@media only screen and (max-width: 1200px) {
+			&::before {
+				font-size: 0;
+				width: 0;
+				height: 0;
+			}
 		}
 	}
 
@@ -162,6 +179,15 @@
 				}
 			}
 		}
+
+		@media only screen and (max-width: 1100px) {
+			&::before, &::after,
+			span::before, span::after {
+				width: 0;
+				height: 0;
+				border: none;
+			}
+		}
 	}
 
 	// Shouts Link
@@ -209,6 +235,15 @@
 
 			span::before {
 				background-color: #0a0;
+			}
+		}
+
+		@media only screen and (max-width: 950px) {
+			&::before, &::after,
+			span::before {
+				width: 0;
+				height: 0;
+				border: none;
 			}
 		}
 	}
@@ -289,6 +324,15 @@
 				top: 8px;
 			}
 		}
+
+		@media only screen and (max-width: 1250px) {
+			&::before, &::after,
+			span::before, span::after {
+				width: 0;
+				height: 0;
+				border: none;
+			}
+		}
 	}
 
 	// Categories Link
@@ -322,11 +366,18 @@
 		&:hover::after {
 			background: #55f;
 		}
+
+		@media only screen and (max-width: 1150px) {
+			&::before, &::after {
+				width: 0;
+				height: 0;
+			}
+		}
 	}
 
 	// Custom Block Link
 	&:nth-child(7) a {
-		& span::before,
+		span::before,
 		&::before {
 			left: 15px;
 			border-width: 10px 0 10px 8px;
@@ -364,10 +415,17 @@
 				border-color: #ee0 transparent;
 			}
 		}
+
+		@media only screen and (max-width: 1400px) {
+			span::before, span::after,
+			&::before, &::after {
+				border: none;
+			}
+		}
 	}
 
 	// About Owner Link
-	&:nth-child(8) a{
+	&:nth-child(8) a {
 		&::before { // The body of the person
 			left: 10px;
 			width: 16px;
@@ -401,6 +459,13 @@
 
 			&::after {
 				background-color: #eaa;
+			}
+		}
+
+		@media only screen and (max-width: 1300px) {
+			&::before, &::after {
+				width: 0;
+				height: 0;
 			}
 		}
 	}
@@ -440,6 +505,14 @@
 			border-color: #fff;
 			left: 17px;
 			top: 10px;
+		}
+
+		@media only screen and (max-width: 1150px) {
+			&::before, &::after {
+				width: 0;
+				height: 0;
+				border: none;
+			}
 		}
 	}
 
@@ -482,9 +555,13 @@
 				top: 8px;
 			}
 		}
+
+		@media only screen and (max-width: 1100px) {
+			&::before, &::after {
+				width: 0;
+				height: 0;
+				border: none;
+			}
+		}
 	}
-}
-
-@media only screen and (max-width: 1400px) {
-
 }

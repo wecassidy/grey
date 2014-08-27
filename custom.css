@@ -9,19 +9,6 @@ Dawn. Thanks to NeoMathematicalKid, PythonNut, knittingfrenzy18, asf, and the fo
 This code is licensed under GNU GPL v3 or later. The full text of the license is available at https://www.gnu.org/copyleft/gpl.html.
 */
 /* Blog error animation */
-@-webkit-keyframes error {
-  0% {
-    background-color: #fff;
-  }
-
-  50% {
-    background-color: #ffcccc;
-  }
-
-  100% {
-    background-color: #fff;
-  }
-}
 @keyframes error {
   0% {
     background-color: #fff;
@@ -36,15 +23,6 @@ This code is licensed under GNU GPL v3 or later. The full text of the license is
   }
 }
 /* Shouts blink Animation */
-@-webkit-keyframes blink {
-  from {
-    width: 1px;
-  }
-
-  to {
-    width: 0;
-  }
-}
 @keyframes blink {
   from {
     width: 1px;
@@ -58,9 +36,7 @@ This code is licensed under GNU GPL v3 or later. The full text of the license is
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box !important;
-     -moz-box-sizing: border-box !important;
-          box-sizing: border-box !important;
+  box-sizing: border-box !important;
 }
 
 /* Background */
@@ -148,15 +124,12 @@ body {
   background: transparent;
   border: none !important;
   border-radius: 2px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 1s ease;
-          transition: box-shadow 1s ease;
+  box-shadow: none;
+  transition: box-shadow 1s ease;
 }
 
 .entry:hover {
-  -webkit-box-shadow: 0 0 6px #b2b2b2;
-          box-shadow: 0 0 6px #b2b2b2;
+  box-shadow: 0 0 6px #b2b2b2;
 }
 
 .entry > h2 {
@@ -183,12 +156,10 @@ div.entrywrap {
 .comment {
   border: none !important;
   border-radius: 2px;
-  -webkit-transition: -webkit-box-shadow 1s ease;
-          transition: box-shadow 1s ease;
+  transition: box-shadow 1s ease;
 }
 .comment:hover {
-  -webkit-box-shadow: 0 0 6px #b2b2b2;
-          box-shadow: 0 0 6px #b2b2b2;
+  box-shadow: 0 0 6px #b2b2b2;
 }
 
 /* Total posts (based on code by NeoMathematicalKid) */
@@ -215,8 +186,7 @@ div.entrywrap {
   padding: 0 3.5px;
   margin: 0 5px;
   border-radius: 50px;
-  -webkit-transition: all 0.7s ease;
-          transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
 .total-posts > span:last-child > strong:first-of-type {
   background: #cccccd;
@@ -228,10 +198,9 @@ div.entrywrap {
   color: gray;
   text-decoration: none;
   text-indent: -1.5px;
+  text-indent: -webkit-calc(-2px);
   padding-left: 5px;
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
 }
 .total-posts > span:last-child > strong:first-of-type:hover {
   border: 1px solid #cccccd;
@@ -272,8 +241,7 @@ div.entrywrap {
   top: -2px;
   float: left;
   margin: 0 !important;
-  -webkit-transition: 1s ease;
-          transition: 1s ease;
+  transition: 1s ease;
 }
 #main .submit-buttons input:hover {
   border-radius: 0 !important;
@@ -309,8 +277,7 @@ div.entrywrap {
   /* Center the text */
   overflow: auto;
   /* Insert scrollbars, if neccesary */
-  -webkit-transition: top 0.5s ease;
-          transition: top 0.5s ease;
+  transition: top 0.5s ease;
 }
 
 .widget-title {
@@ -361,16 +328,13 @@ div.entrywrap {
   display: none;
   /* Hide the hide link */
   border-radius: 0 0 20px 20px;
-  -webkit-box-shadow: 0 3px 5px #000;
-          box-shadow: 0 3px 5px #000;
+  box-shadow: 0 3px 5px #000;
 }
 #custom-block-widget ul:last-child li:not(:last-child) a {
   top: calc(100% - 20px);
   border-radius: 20px 20px 0 0;
-  -webkit-box-shadow: 0 -3px 5px #000;
-          box-shadow: 0 -3px 5px #000;
-  -webkit-transition: top 0.5s ease;
-          transition: top 0.5s ease;
+  box-shadow: 0 -3px 5px #000;
+  transition: top 0.5s ease;
 }
 #custom-block-widget ul:last-child li:nth-child(1) a {
   left: 0%;
@@ -423,14 +387,11 @@ div.entrywrap {
 }
 #shouts-widget fieldset > ul > li {
   border-radius: 2px;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  -webkit-transition: -webkit-box-shadow 1s ease;
-          transition: box-shadow 1s ease;
+  box-shadow: none;
+  transition: box-shadow 1s ease;
 }
 #shouts-widget fieldset > ul > li:hover {
-  -webkit-box-shadow: 0 0 6px #000;
-          box-shadow: 0 0 6px #000;
+  box-shadow: 0 0 6px #000;
 }
 #shouts-widget fieldset:nth-child(1) {
   border-top: 2px solid #000;
@@ -482,8 +443,7 @@ div.entrywrap {
   top: 1px;
   float: left;
   margin: 0 !important;
-  -webkit-transition: 1s ease;
-          transition: 1s ease;
+  transition: 1s ease;
 }
 #shouts-widget fieldset:nth-child(3) input:hover {
   border-radius: 0 !important;
@@ -513,8 +473,7 @@ div.entrywrap {
   padding: 0 3.5px;
   margin: 0 5px;
   border-radius: 50px;
-  -webkit-transition: all 0.7s ease;
-          transition: all 0.7s ease;
+  transition: all 0.7s ease;
 }
 #shouts-widget fieldset:nth-child(2) div > strong:first-of-type {
   background: #cccccd;
@@ -526,10 +485,9 @@ div.entrywrap {
   color: gray;
   text-decoration: none;
   text-indent: -1.5px;
+  text-indent: -webkit-calc(-2px);
   padding-left: 5px;
-  -webkit-transform: scale(1.2);
-      -ms-transform: scale(1.2);
-          transform: scale(1.2);
+  transform: scale(1.2);
 }
 #shouts-widget fieldset:nth-child(2) div > strong:first-of-type:hover {
   border-color: #cccccd;
@@ -570,8 +528,7 @@ div.entrywrap {
   top: 1px;
   float: left;
   margin: 0 !important;
-  -webkit-transition: 1s ease;
-          transition: 1s ease;
+  transition: 1s ease;
 }
 #shouts-widget .submit-buttons input:hover {
   border-radius: 0 !important;
@@ -619,8 +576,7 @@ div.entrywrap {
   border: 1px solid #000;
   background: transparent;
   border-radius: 0  0 100px 100px;
-  -webkit-transition: 1s ease;
-          transition: 1s ease;
+  transition: 1s ease;
 }
 #blog_searchform div .button2:hover {
   border-radius: 0;
@@ -688,8 +644,7 @@ div.entrywrap {
   position: absolute;
   top: 50%;
   left: 0;
-  -webkit-transition: 0.5s ease;
-          transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 
 /* Modactions */
@@ -703,9 +658,7 @@ div.entrywrap {
   height: 5px;
   margin-top: 2px;
   background: #000;
-  -webkit-transform: skew(-10deg, -10deg);
-      -ms-transform: skew(-10deg, -10deg);
-          transform: skew(-10deg, -10deg);
+  transform: skew(-10deg, -10deg);
 }
 .modactions li:nth-child(1):not(:last-child) a::after {
   left: -50px;
@@ -714,9 +667,7 @@ div.entrywrap {
   border-left: 1px solid #fff;
   margin-top: -3px;
   /* css3 */
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .modactions li:nth-child(1):not(:last-child) a:hover::before, .modactions li:nth-child(1):not(:last-child) a:hover::after {
   background: #228B22;
@@ -768,17 +719,13 @@ div.entrywrap {
 .modactions li:nth-child(2) a:hover::after {
   top: -7px;
   left: -25px;
-  -webkit-transform: rotate(20deg);
-      -ms-transform: rotate(20deg);
-          transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 .modactions li:nth-child(2):hover::before {
   border-color: #f00;
   top: -7px;
   left: -31px;
-  -webkit-transform: rotate(20deg);
-      -ms-transform: rotate(20deg);
-          transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 .modactions li:nth-child(2):hover:hover a::before, .modactions li:nth-child(2):hover:hover a::after {
   border-color: #f00;
@@ -786,9 +733,7 @@ div.entrywrap {
 .modactions li:nth-child(2):hover:hover a::after {
   top: -7px;
   left: -25px;
-  -webkit-transform: rotate(20deg);
-      -ms-transform: rotate(20deg);
-          transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 .modactions li:last-child:not(:nth-child(2)) a::before {
   left: -10px;
@@ -800,9 +745,7 @@ div.entrywrap {
   border-color: #000;
   background: transparent;
   /* css3 */
-  -webkit-transform: skewY(-8deg);
-      -ms-transform: skewY(-8deg);
-          transform: skewY(-8deg);
+  transform: skewY(-8deg);
 }
 .modactions li:last-child:not(:nth-child(2)) a::after {
   left: -4px;
@@ -811,9 +754,7 @@ div.entrywrap {
   margin-top: -3px;
   background: #000;
   /* css3 */
-  -webkit-transform: skewY(-6deg);
-      -ms-transform: skewY(-6deg);
-          transform: skewY(-6deg);
+  transform: skewY(-6deg);
 }
 .modactions li:last-child:not(:nth-child(2)) a:hover::before {
   border-color: #F44;
@@ -873,6 +814,14 @@ div.entrywrap {
 #custom-block-widget ul:last-child li:last-child a span::before {
   margin-top: -5px;
 }
+@media only screen and (max-width: 850px) {
+  #custom-block-widget ul:last-child li:last-child a::before, #custom-block-widget ul:last-child li:last-child a::after,
+  #custom-block-widget ul:last-child li:last-child a span::before {
+    width: 0;
+    height: 0;
+    border: none;
+  }
+}
 #custom-block-widget ul:last-child li:nth-child(1) a::before {
   content: "i";
   left: 10px;
@@ -893,6 +842,13 @@ div.entrywrap {
 #custom-block-widget ul:last-child li:nth-child(1) a:hover::before {
   background: #00f;
 }
+@media only screen and (max-width: 1200px) {
+  #custom-block-widget ul:last-child li:nth-child(1) a::before {
+    font-size: 0;
+    width: 0;
+    height: 0;
+  }
+}
 #custom-block-widget ul:last-child li:nth-child(2) a::before {
   left: 10px;
   width: 13px;
@@ -909,9 +865,7 @@ div.entrywrap {
   height: 6px;
   background-color: #000;
   content: "";
-  -webkit-transform-origin: 1px 6px;
-      -ms-transform-origin: 1px 6px;
-          transform-origin: 1px 6px;
+  transform-origin: 1px 6px;
 }
 #custom-block-widget ul:last-child li:nth-child(2) a span::after {
   display: block;
@@ -921,25 +875,17 @@ div.entrywrap {
   height: 5px;
   background-color: #000;
   content: "";
-  -webkit-transform-origin: 1px 5px;
-      -ms-transform-origin: 1px 5px;
-          transform-origin: 1px 5px;
-  -webkit-transform: rotate(30deg);
-      -ms-transform: rotate(30deg);
-          transform: rotate(30deg);
+  transform-origin: 1px 5px;
+  transform: rotate(30deg);
 }
 #custom-block-widget ul:last-child li:nth-child(2) a span:hover::before, #custom-block-widget ul:last-child li:nth-child(2) a span:hover::after {
   background-color: #0f0;
 }
 #custom-block-widget ul:last-child li:nth-child(2) a span:hover::before {
-  -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 #custom-block-widget ul:last-child li:nth-child(2) a span:hover::after {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 #custom-block-widget ul:last-child li:nth-child(2) a:hover::before {
   border-color: #c00;
@@ -948,14 +894,18 @@ div.entrywrap {
   background-color: #0c0;
 }
 #custom-block-widget ul:last-child li:nth-child(2) a:hover span::before {
-  -webkit-transform: rotate(360deg);
-      -ms-transform: rotate(360deg);
-          transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 #custom-block-widget ul:last-child li:nth-child(2) a:hover span::after {
-  -webkit-transform: rotate(90deg);
-      -ms-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+@media only screen and (max-width: 1100px) {
+  #custom-block-widget ul:last-child li:nth-child(2) a::before, #custom-block-widget ul:last-child li:nth-child(2) a::after,
+  #custom-block-widget ul:last-child li:nth-child(2) a span::before, #custom-block-widget ul:last-child li:nth-child(2) a span::after {
+    width: 0;
+    height: 0;
+    border: none;
+  }
 }
 #custom-block-widget ul:last-child li:nth-child(3) a::before {
   left: 10px;
@@ -964,9 +914,7 @@ div.entrywrap {
   border: 1px solid #000;
   margin-top: -6px;
   /* css3 */
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   border-radius: 2px;
 }
 #custom-block-widget ul:last-child li:nth-child(3) a::after {
@@ -982,8 +930,7 @@ div.entrywrap {
   height: 6px;
   left: 13px;
   margin-top: -5px;
-  -webkit-animation: blink 1.5s ease 0s infinite normal;
-          animation: blink 1.5s ease 0s infinite normal;
+  animation: blink 1.5s ease 0s infinite normal;
 }
 #custom-block-widget ul:last-child li:nth-child(3) a:hover::before {
   background: transparent;
@@ -996,6 +943,14 @@ div.entrywrap {
 #custom-block-widget ul:last-child li:nth-child(3) a:hover span::before {
   background-color: #0a0;
 }
+@media only screen and (max-width: 950px) {
+  #custom-block-widget ul:last-child li:nth-child(3) a::before, #custom-block-widget ul:last-child li:nth-child(3) a::after,
+  #custom-block-widget ul:last-child li:nth-child(3) a span::before {
+    width: 0;
+    height: 0;
+    border: none;
+  }
+}
 #custom-block-widget ul:last-child li:nth-child(4) a::before {
   left: 10px;
   width: 9px;
@@ -1005,10 +960,9 @@ div.entrywrap {
   /* css3 */
   -webkit-border-top-left-radius: 3px;
   -webkit-border-top-right-radius: 3px;
+  -moz-border-radius: 3px 3px 0 0;
   border-radius: 5px 5px 0 0;
-  -webkit-transform: rotate(-40deg);
-      -ms-transform: rotate(-40deg);
-          transform: rotate(-40deg);
+  transform: rotate(-40deg);
 }
 #custom-block-widget ul:last-child li:nth-child(4) a::after {
   left: 11px;
@@ -1045,9 +999,7 @@ div.entrywrap {
   border: 1px solid #fff;
   margin-top: -6px;
   /* css3 */
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 #custom-block-widget ul:last-child li:nth-child(5) a:hover span::before {
   border-color: #777;
@@ -1060,6 +1012,14 @@ div.entrywrap {
   background-color: #842;
   top: 8px;
 }
+@media only screen and (max-width: 1250px) {
+  #custom-block-widget ul:last-child li:nth-child(5) a::before, #custom-block-widget ul:last-child li:nth-child(5) a::after,
+  #custom-block-widget ul:last-child li:nth-child(5) a span::before, #custom-block-widget ul:last-child li:nth-child(5) a span::after {
+    width: 0;
+    height: 0;
+    border: none;
+  }
+}
 #custom-block-widget ul:last-child li:nth-child(6) a::before {
   left: 10px;
   width: 16px;
@@ -1068,6 +1028,7 @@ div.entrywrap {
   /* css3 */
   -webkit-border-bottom-right-radius: 1px;
   -webkit-border-bottom-left-radius: 1px;
+  -moz-border-radius: 0 0 1px 1px;
   border-radius: 0 0 1px 1px;
 }
 #custom-block-widget ul:last-child li:nth-child(6) a::after {
@@ -1079,10 +1040,17 @@ div.entrywrap {
   /* css3 */
   -webkit-border-top-right-radius: 1px;
   -webkit-border-top-left-radius: 1px;
+  -moz-border-radius: 1px 1px 0 0;
   border-radius: 1px 1px 0 0;
 }
 #custom-block-widget ul:last-child li:nth-child(6) a:hover::before, #custom-block-widget ul:last-child li:nth-child(6) a:hover::after {
   background: #55f;
+}
+@media only screen and (max-width: 1150px) {
+  #custom-block-widget ul:last-child li:nth-child(6) a::before, #custom-block-widget ul:last-child li:nth-child(6) a::after {
+    width: 0;
+    height: 0;
+  }
 }
 #custom-block-widget ul:last-child li:nth-child(7) a span::before, #custom-block-widget ul:last-child li:nth-child(7) a::before {
   left: 15px;
@@ -1092,16 +1060,12 @@ div.entrywrap {
   margin-top: -9px;
   background: transparent;
   /* css3 */
-  -webkit-transform: rotate(22.5deg);
-      -ms-transform: rotate(22.5deg);
-          transform: rotate(22.5deg);
+  transform: rotate(22.5deg);
 }
 #custom-block-widget ul:last-child li:nth-child(7) a::before {
   left: 15px;
   /* css3 */
-  -webkit-transform: rotate(157.5deg);
-      -ms-transform: rotate(157.5deg);
-          transform: rotate(157.5deg);
+  transform: rotate(157.5deg);
 }
 #custom-block-widget ul:last-child li:nth-child(7) a::after {
   left: 9px;
@@ -1118,6 +1082,11 @@ div.entrywrap {
 #custom-block-widget ul:last-child li:nth-child(7) a:hover::after {
   border-color: #ee0 transparent;
 }
+@media only screen and (max-width: 1400px) {
+  #custom-block-widget ul:last-child li:nth-child(7) a span::before, #custom-block-widget ul:last-child li:nth-child(7) a span::after, #custom-block-widget ul:last-child li:nth-child(7) a::before, #custom-block-widget ul:last-child li:nth-child(7) a::after {
+    border: none;
+  }
+}
 #custom-block-widget ul:last-child li:nth-child(8) a::before {
   left: 10px;
   width: 16px;
@@ -1126,6 +1095,7 @@ div.entrywrap {
   /* css3 */
   -webkit-border-top-right-radius: 5px;
   -webkit-border-top-left-radius: 5px;
+  -moz-border-radius: 5px 5px 0 0;
   border-radius: 5px 5px 0 0;
 }
 #custom-block-widget ul:last-child li:nth-child(8) a::after {
@@ -1138,6 +1108,7 @@ div.entrywrap {
   -webkit-border-top-left-radius: 5px;
   -webkit-border-bottom-right-radius: 5px 10px;
   -webkit-border-bottom-left-radius: 5px 10px;
+  -moz-border-radius: 5px 5px 5px 5px / 5px 5px 10px 10px;
   border-radius: 5px 5px 5px 5px / 5px 5px 10px 10px;
 }
 #custom-block-widget ul:last-child li:nth-child(8) a:hover::before {
@@ -1145,6 +1116,12 @@ div.entrywrap {
 }
 #custom-block-widget ul:last-child li:nth-child(8) a:hover::after {
   background-color: #eaa;
+}
+@media only screen and (max-width: 1300px) {
+  #custom-block-widget ul:last-child li:nth-child(8) a::before, #custom-block-widget ul:last-child li:nth-child(8) a::after {
+    width: 0;
+    height: 0;
+  }
 }
 #custom-block-widget ul:last-child li:nth-child(9) a::before {
   left: 10px;
@@ -1165,6 +1142,7 @@ div.entrywrap {
   background: #000;
   /* css3 */
   -webkit-border-top-right-radius: 16px;
+  -moz-border-radius: 0 16px 0 0;
   border-radius: 0 16px 0 0;
 }
 #custom-block-widget ul:last-child li:nth-child(9) a:hover::before {
@@ -1175,6 +1153,13 @@ div.entrywrap {
   border-color: #fff;
   left: 17px;
   top: 10px;
+}
+@media only screen and (max-width: 1150px) {
+  #custom-block-widget ul:last-child li:nth-child(9) a::before, #custom-block-widget ul:last-child li:nth-child(9) a::after {
+    width: 0;
+    height: 0;
+    border: none;
+  }
 }
 #custom-block-widget ul:last-child li:nth-child(10) a::before {
   left: 10px;
@@ -1195,6 +1180,7 @@ div.entrywrap {
   background: transparent;
   /* css3 */
   -webkit-border-top-right-radius: 25px;
+  -moz-border-radius: 0 25px 0 0;
   border-radius: 0 25px 0 0;
 }
 #custom-block-widget ul:last-child li:nth-child(10) a:hover::before {
@@ -1205,6 +1191,13 @@ div.entrywrap {
   width: 11px;
   height: 11px;
   top: 8px;
+}
+@media only screen and (max-width: 1100px) {
+  #custom-block-widget ul:last-child li:nth-child(10) a::before, #custom-block-widget ul:last-child li:nth-child(10) a::after {
+    width: 0;
+    height: 0;
+    border: none;
+  }
 }
 
 /* Delete Shouts */
@@ -1231,14 +1224,10 @@ div.entrywrap {
   background: #fff;
 }
 #shouts-widget fieldset:nth-child(3):hover:before {
-  -webkit-transform: rotate(-45deg);
-      -ms-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 #shouts-widget fieldset:nth-child(3):hover:after {
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 /* Search Button */
@@ -1254,6 +1243,8 @@ div.entrywrap {
   border: 3px solid #000;
   background: transparent;
   /* css3 */
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
   border-radius: 12px;
 }
 #blog_searchform fieldset div::after {
@@ -1265,7 +1256,9 @@ div.entrywrap {
   margin-top: 0;
   /* css3 */
   -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
   -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
 
@@ -1282,9 +1275,12 @@ div.entrywrap {
   background: #000;
   -webkit-border-top-left-radius: 12px;
   -webkit-border-bottom-right-radius: 12px;
+  -moz-border-radius: 12px 0 12px 0;
   border-radius: 12px 0 12px 0;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 .panel.bg2::after {
@@ -1293,6 +1289,8 @@ div.entrywrap {
   height: 4px;
   border: 2px solid #fff;
   margin-top: -15px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
   border-radius: 6px;
 }
 
@@ -1306,6 +1304,8 @@ div.entrywrap {
   height: 16px;
   margin-top: -18px;
   /* css3 */
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
   border-radius: 16px;
   background: #000;
 }
@@ -1318,7 +1318,9 @@ div.entrywrap {
   border-color: #fff;
   margin-top: -16px;
   -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
 
@@ -1343,10 +1345,9 @@ div.entrywrap {
   /* css3 */
   -webkit-border-top-left-radius: 3px;
   -webkit-border-top-right-radius: 3px;
+  -moz-border-radius: 3px 3px 0 0;
   border-radius: 5px 5px 0 0;
-  -webkit-transform: rotate(-40deg);
-      -ms-transform: rotate(-40deg);
-          transform: rotate(-40deg);
+  transform: rotate(-40deg);
 }
 .post-tags a:first-child::after {
   left: 7px;
@@ -1375,9 +1376,7 @@ div.entrywrap {
   margin-top: -8px;
   background: #fff;
   /* css3 */
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 #options-panel-tab a span::before {
@@ -1387,9 +1386,7 @@ div.entrywrap {
   margin-top: -7px;
   background: #000;
   /* css3 */
-  -webkit-transform: rotate(45deg);
-      -ms-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 #options-panel-tab a span::after {
@@ -1451,9 +1448,7 @@ div.entrywrap {
   margin-top: -13px;
   background: transparent;
   /* css3 */
-  -webkit-transform: rotate(39deg) skew(-12deg);
-      -ms-transform: rotate(39deg) skew(-12deg);
-          transform: rotate(39deg) skew(-12deg);
+  transform: rotate(39deg) skew(-12deg);
 }
 
 #subscriptions-panel-tab a::before {
@@ -1503,10 +1498,9 @@ div.entrywrap {
   /* css3 */
   -webkit-border-top-left-radius: 3px;
   -webkit-border-top-right-radius: 3px;
+  -moz-border-radius: 3px 3px 0 0;
   border-radius: 5px 5px 0 0;
-  -webkit-transform: rotate(-40deg);
-      -ms-transform: rotate(-40deg);
-          transform: rotate(-40deg);
+  transform: rotate(-40deg);
 }
 
 #tags-panel-tab a::after {
@@ -1528,8 +1522,7 @@ div.entrywrap {
   background: #f00;
   top: 10px;
   border-radius: 0 0 6px 6px;
-  -webkit-transition: top 1s ease;
-          transition: top 1s ease;
+  transition: top 1s ease;
 }
 #blog-errors p::before, #blog-errors p::after {
   content: "";
@@ -1538,22 +1531,19 @@ div.entrywrap {
   height: 12px;
   border: 1px solid #f00;
   top: 10px;
-  -webkit-transition: top 1s ease;
-          transition: top 1s ease;
+  transition: top 1s ease;
 }
 #blog-errors p::before {
   left: calc(45% - 12px);
   border-width: 1px 1px 0 0;
   border-top-right-radius: 6px;
-  -webkit-box-shadow: 4px 0 0 #f00;
-          box-shadow: 4px 0 0 #f00;
+  box-shadow: 4px 0 0 #f00;
 }
 #blog-errors p::after {
   right: calc(45% - 12px);
   border-width: 1px 0 0 1px;
   border-top-left-radius: 6px;
-  -webkit-box-shadow: -4px 0 0 #f00;
-          box-shadow: -4px 0 0 #f00;
+  box-shadow: -4px 0 0 #f00;
 }
 #blog-errors:hover::after {
   top: 105px;
@@ -1605,12 +1595,9 @@ div.entrywrap {
   z-index: 2;
   overflow: auto;
   border-radius: 4px;
-  -webkit-box-shadow: 0 0 4px #f00;
-          box-shadow: 0 0 4px #f00;
-  -webkit-animation: error 3s linear infinite;
-          animation: error 3s linear infinite;
-  -webkit-transition: top 1s ease;
-          transition: top 1s ease;
+  box-shadow: 0 0 4px #f00;
+  animation: error 3s linear infinite;
+  transition: top 1s ease;
 }
 #blog-errors:hover {
   top: 10px;
@@ -1627,16 +1614,11 @@ a:link:hover, a:visited:hover {
 /* Usernames */
 a[href*="mode=viewprofile"] {
   display: inline-block;
-  -webkit-transform: skew(-10deg);
-      -ms-transform: skew(-10deg);
-          transform: skew(-10deg);
-  -webkit-transition: all 0.5s ease;
-          transition: all 0.5s ease;
+  transform: skew(-10deg);
+  transition: all 0.5s ease;
 }
 a[href*="mode=viewprofile"]:hover {
-  -webkit-transform: none;
-      -ms-transform: none;
-          transform: none;
+  transform: none;
   text-decoration: none;
 }
 
@@ -1690,17 +1672,14 @@ ul, ol {
   white-space: pre;
   border-radius: 20px 20px 3px 3px;
   margin: 1em 0;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .codecontent > div::before {
   content: attr(class);
-  background-image: -webkit-gradient(linear, left top, right top, from(rgba(220, 220, 220, 0)), to(gainsboro));
-  background-image: -webkit-linear-gradient(left, rgba(220, 220, 220, 0), gainsboro);
   background-image: linear-gradient(to right, rgba(220, 220, 220, 0), gainsboro);
   position: relative;
+  width: -webkit-calc(100% + 2px);
   width: calc(100% + 2px);
   height: 20px;
   z-index: 100;
@@ -1794,8 +1773,7 @@ div.codecontent li:before {
     margin: 3px 3px 3px 3px;
     position: relative;
     max-height: 3em;
-    -webkit-transition: max-height 1s ease;
-            transition: max-height 1s ease;
+    transition: max-height 1s ease;
   }
 
   .widget[id]:hover, #user-menu-widget:hover {
@@ -1811,8 +1789,7 @@ div.codecontent li:before {
   body::before {
     content: "U HAS VRY SMALL SCREEN!";
     background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
-    -webkit-background-size: 100% AUTO;
-            background-size: 100% AUTO;
+    background-size: 100% AUTO;
     font-size: 50px;
     color: white;
     position: fixed;
@@ -1829,8 +1806,7 @@ div.codecontent li:before {
   body::before {
     content: "U HAS VRY SMALL SCREEN!";
     background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
-    -webkit-background-size: 100% AUTO;
-            background-size: 100% AUTO;
+    background-size: 100% AUTO;
     font-size: 50px;
     color: white;
     position: fixed;
@@ -1849,8 +1825,7 @@ div.codecontent li:before {
   body::before {
     content: "";
     background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
-    -webkit-background-size: 100% AUTO;
-            background-size: 100% AUTO;
+    background-size: 100% AUTO;
     font-size: 50px;
     color: white;
     position: fixed;
@@ -1862,8 +1837,7 @@ div.codecontent li:before {
   body::after {
     content: "U HAS VRY SMALL SCREEN!";
     background-image: url(http://tungsten.site40.net/css/CatSurprised.jpg);
-    -webkit-background-size: 100% AUTO;
-            background-size: 100% AUTO;
+    background-size: 100% AUTO;
     font-size: 50px;
     color: white;
     position: fixed;
@@ -1874,8 +1848,8 @@ div.codecontent li:before {
     left: -300%;
     top: 50%;
     width: 700%;
-    -webkit-transform: rotate(90deg);
-        -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
+    transform: rotate(90deg);
   }
 }
+
+/*# sourceMappingURL=custom.css.map */
