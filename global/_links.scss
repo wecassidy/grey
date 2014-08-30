@@ -3,6 +3,11 @@ a:link, a:visited {
 	@include link;
 }
 
+#side a:link,
+#side a:visited {
+	color: #00a;
+}
+
 /* Usernames */
 a[href*="mode=viewprofile"] {
 	display: inline-block;
