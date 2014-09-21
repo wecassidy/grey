@@ -1,0 +1,30 @@
+{
+  "name": "Grey",
+  "version": "1.2.0",
+  "description": "A CSS style for AoPS blogs.",
+  "main": "custom.scss",
+  "dependencies": {},
+  "devDependencies": {
+    "autoprefixer": "^3.1.0",
+    "gulp": "^3.8.8",
+    "gulp-autoprefixer": "^1.0.1",
+    "gulp-minify-css": "^0.3.10",
+    "gulp-ruby-sass": "^0.7.3",
+    "sass": "~3.3.4"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Tungsten314/grey"
+  },
+  "keywords": [
+    "SCSS",
+    "CSS"
+  ],
+  "author": "Tungsten",
+  "license": "GPL-3.0+",
+  "bugs": {
+    "url": "https://github.com/Tungsten314/grey/issues"
+  },
+  "homepage": "https://github.com/Tungsten314/grey"
+}
